@@ -511,15 +511,15 @@ template_sets:
         options:
             fieldsets:
                 fs_slider_settings:
-                    label: 'AnythingSlider Settings'
+                    label: 'Carousel Config.'
                     hint: 'Hint goes here.'
                     order: 2
                 fs_site_settings:
-                    label: 'Site Wide Settings'
+                    label: 'Site Wide Config.'
                     hint: 'Hint goes here.'
                     order: 1
                 info:
-                    label: 'Site Info'
+                    label: 'Home Carousel'
                     hint: 'Hint goes here.'
                     order: 3
                 design:
@@ -702,13 +702,19 @@ template_sets:
                 tag: 'IfAnythingSliderStartStop?'
                 order: 20
                 fieldset: fs_slider_settings
+            anything_separator1:
+                type: separator
+                label: "Slider Images"
+                hint: "This is a hint"
+                order: 21
+                fieldset: fs_slider_settings
             anything_arrowsimg:
                 type: file
                 destination: theme/%{10}e
                 label: "Arrows"
                 hint: "The arrows image is a single PNG with normal and hover states for the left and right arrows. Leave blank for the default image."
                 tag: 'AnythingSliderArrowsImg'
-                order: 1
+                order: 22
                 scope: blog
                 fieldset: fs_slider_settings
             anything_thumbimg:
@@ -717,7 +723,7 @@ template_sets:
                 label: "Navigation Background"
                 hint: "The background image used for the start/stop toggle and navigation buttons. Leave blank for the default image."
                 tag: 'AnythingSliderThumbImg'
-                order: 1
+                order: 23
                 scope: blog
                 fieldset: fs_slider_settings
             anything_breakingimg:
@@ -726,7 +732,7 @@ template_sets:
                 label: "Breaking News"
                 hint: "The image is placed on top of the carousel image when using the Article Slider. It should be a transparent PNG file. Leave blank for the default image."
                 tag: 'AnythingSliderBreakingImg'
-                order: 3
+                order: 24
                 scope: blog
                 fieldset: fs_slider_settings
             anything_updatedimg:
@@ -735,7 +741,7 @@ template_sets:
                 label: "Updated"
                 hint: "The image is placed on top of the carousel image when using the Article Slider. It should be a transparent PNG file. Leave blank for the default image."
                 tag: 'AnythingSliderUpdatedImg'
-                order: 4
+                order: 25
                 scope: blog
                 fieldset: fs_slider_settings
             anything_featuredimg:
@@ -744,16 +750,26 @@ template_sets:
                 label: "Featured"
                 hint: "The image is placed on top of the carousel image when using the Article Slider. It should be a transparent PNG file. Leave blank for the default image."
                 tag: 'AnythingSliderFeaturedImg'
-                order: 5
+                order: 26
                 scope: blog
                 fieldset: fs_slider_settings
-            appletouch_url:
+            appletouch_icon:
                 type: file
                 label: "Apple Touch Icon"
-                hint: "This is the URL of the Apple Touch Icon for this blog."
+                hint: "This is the Apple Touch Icon for this blog."
                 tag: 'BGVAppleTouchIcon'
                 destination: theme/%{10}e
                 scope: blog
+                order: 1
+                fieldset: fs_site_settings
+            appletouch_splash:
+                type: file
+                label: "Apple Touch Splash Screen"
+                hint: "This is the Apple Touch Splash image for this blog."
+                tag: 'BGVAppleTouchSplash'
+                destination: theme/%{10}e
+                scope: blog
+                order: 2
                 fieldset: fs_site_settings
             headerlogo_link:
                 type: text
@@ -761,36 +777,35 @@ template_sets:
                 hint: "This is the link URL for the header logo."
                 default: 'http://bgviews.com'
                 tag: 'BGVHeaderLogoLink'
+                order: 3
                 fieldset: fs_site_settings
             author_meta:
                 type: text
                 label: "Blog Author"
                 hint: "This is the META Author."
                 tag: 'BGVMetaAuthor'
+                order: 4
                 fieldset: fs_site_settings
             email_meta:
                 type: text
                 label: "Blog Author Email"
                 hint: "This is the META Author Email."
                 tag: 'BGVMetaEmail'
+                order: 5
                 fieldset: fs_site_settings
             description_meta:
                 type: textarea
                 label: "Blog Description"
                 hint: "This is the META Description. It should be one or two brief sentences about the site"
                 tag: 'BGVMetaDescription'
+                order: 6
                 fieldset: fs_site_settings
             keywords_meta:
                 type: textarea
                 label: "Blog Keywords"
                 hint: "This is the META Keywords. It should a comma separated list."
                 tag: 'BGVMetaKeywords'
-                fieldset: fs_site_settings
-            mobile_contact:
-                type: text
-                label: "Mobile Contact"
-                hint: "Used on the Mobile templates, must be like this: webmaster@bgviews.com?subject=Blog Feedback"
-                tag: 'BGVMobileContact'
+                order: 7
                 fieldset: fs_site_settings
             site_type:
                 type: select
@@ -798,6 +813,7 @@ template_sets:
                 label: "Site Type"
                 hint: "Select the Site Type from the drop down menu."
                 tag: 'BGVSiteType'
+                order: 8
                 fieldset: fs_site_settings
 
 skip_static:
