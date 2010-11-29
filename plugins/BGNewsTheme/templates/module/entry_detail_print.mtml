@@ -1,0 +1,34 @@
+<div id="entry-<$mt:EntryID$>" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><$mt:EntryTitle$></h2>
+        <mt:If tag="entrydatabgn_subhead"><h3><mt:entrydatabgn_subhead></h3></mt:If>
+<mt:If tag="EntryAuthorDisplayName">
+        By <span class="vcard author"><a href="/profile/<mt:EntryAuthorUsername>"><$mt:EntryAuthorDisplayName$></a><mt:If tag="authordatabyline_position">, <mt:authordatabyline_position></mt:If><br>
+</mt:If>
+    <span class="byline">
+        <abbr class="published" title="<$mt:EntryDate format="%b %d, %Y %I:%M %p"$>">Published: <$mt:EntryDate format="%B %d, %Y"$><mt:If tag="entrydataupdated"> (Updated: <mt:entrydataupdated format="%b %d, %Y">) </mt:If></abbr>
+    </span>
+
+    </div>
+    <div class="asset-content entry-content">
+
+<mt:If tag="EntryMore" convert_breaks="0">
+<div id="alpha-right">
+        <div id="more" class="asset-more">
+            <$mt:EntryMore$>
+	</div>
+</div>
+</mt:If>
+
+<mt:If tag="EntryBody">
+        <div class="asset-body">
+            <$mt:EntryBody blogshow="html"$>
+        </div>
+</mt:If>
+
+</div>
+    <div class="asset-footer">
+</div>
+</div>
+
+ 

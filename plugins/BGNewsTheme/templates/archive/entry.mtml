@@ -1,0 +1,52 @@
+<mt:SetVarBlock name="page_title"><$mt:EntryTitle$></mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:Var name="page_title"$> - <$mt:BlogName encode_html="1"$></mt:SetVarBlock>
+<mt:SetVarBlock name="html_head" append="1">
+    <mt:EntryPrevious><link rel="prev bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>" /></mt:EntryPrevious>
+    <mt:EntryNext><link rel="next bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>" /></mt:EntryNext>
+    <$mt:EntryTrackbackData$>
+
+<mt:If tag="EntryCategory">
+<mt:IfArchiveType type="individual">
+<mt:IfCategory label="City" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - City" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Blotter" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Blotter" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Campus" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Campus" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Sports" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Sports" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Wire" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Wire" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Opinion" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Opinion" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Entertainment" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Entertainment" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="In Focus" type="primary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - In Focus" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Breaking News" type="secondary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Breaking News" href="../atom.xml" />
+</mt:IfCategory>
+<mt:IfCategory label="Online Updates" type="secondary">
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - Online Updates" href="../atom.xml" />
+</mt:IfCategory>
+<mt:Else>
+</mt:IfArchiveType>
+</mt:If>
+<link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/bgnews_entry.css" type="text/css" media="screen"/>
+</mt:SetVarBlock>
+<$mt:Include module="Header MTCS 1" body_class="mt-entry-archive"$>
+<$mt:Include module="Header MTCS 2" body_class="mt-entry-archive"$>
+<$mt:Include module="Header MTCS 3" body_class="mt-entry-archive"$>
+<$mt:Include module="Entry Detail BG News"$>
+<$mt:Include module="TrackBacks Blogs"$>
+<$mt:Include module="Comments Blogs"$>
+<$mt:Include module="Footer MTCS 2-Col"$>
+

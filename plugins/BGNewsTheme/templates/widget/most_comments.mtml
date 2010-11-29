@@ -1,0 +1,17 @@
+ <div class="widget-archives widget">
+  <h3 class="widget-header">Most Comments</h3>
+  <div class="widget-content">
+    <ul class="widget-list">
+      <ul>
+        <mt:Entries recently_commented_on="10" sort_by="comment_count">
+          <li><a href="<$mt:EntryPermalink$>">
+            <$mt:EntryTitle$>
+            </a>
+            <span style="color:#999;"><$MTEntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></span>
+          </li>
+        </mt:Entries>
+      </ul>
+    </ul>
+  </div>
+</div>
+

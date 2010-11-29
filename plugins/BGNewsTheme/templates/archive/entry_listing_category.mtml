@@ -1,0 +1,215 @@
+<mt:SetVarBlock name="page_title"><$mt:ArchiveTitle$></mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$> - <$mt:Var name="page_title"$></mt:SetVarBlock>
+<mt:If name="datebased_archive">
+    <mt:SetVarBlock name="html_head">
+        <mt:ArchivePrevious><link rel="prev bookmark" href="<$mt:ArchiveLink$>" title="<$mt:ArchiveTitle encode_html="1"$>" /></mt:ArchivePrevious>
+        <mt:ArchiveNext><link rel="next bookmark" href="<$mt:ArchiveLink$>" title="<$mt:ArchiveTitle encode_html="1"$>" /></mt:ArchiveNext>
+    </mt:SetVarBlock>
+<mt:Else name="category_archive">
+    <mt:SetVarBlock name="html_head">
+<link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/bgnews_category.css" type="text/css" media="screen"/>
+<link rel="alternate" type="application/atom+xml" title="<$mt:BlogName$> - <$mt:ArchiveTitle$>" href="atom.xml" />
+    </mt:SetVarBlock>
+</mt:If>
+
+<mt:SetVarBlock name="body_class">mt-archive-listing mt-<$mt:Var name="archive_class"$></mt:SetVarBlock>
+
+<$mt:Include module="Header MTCS 1" body_class="$body_class"$>
+<$mt:Include module="Header MTCS 2" body_class="$body_class"$>
+<$mt:Include module="Header MTCS 3" body_class="$body_class"$>
+
+<mt:If tag="categorydatabiglogo">
+<div id="bgn-cat-label" style="margin-bottom:15px;">
+<mt:categorydatabiglogoAsset>
+<a href="<$mt:CategoryArchiveLink$>"><img src="<mt:AssetURL>" width="300" height="30" border="0" alt="<$mt:CategoryDescription escape="html"$>"/></a>
+</mt:categorydatabiglogoAsset>
+</div>
+</mt:If>
+
+<mt:IfCategory label="Campus">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_one"><$mt:BGNCampusTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_one">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="City">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_two"><$mt:BGNCityTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_two">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="Sports">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_three"><$mt:BGNSportsTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_three">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="Regional">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Regional</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_four"><$mt:BGNWireTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_four">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="Opinion">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_five"><$mt:BGNOpinionTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_five">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="Entertainment">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_six"><$mt:BGNEntertainmentTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_six">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="In Focus">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_seven"><$mt:BGNInFocusTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_seven">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="Breaking News">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_eight"><$mt:BGNBreakingNewsTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_eight">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+<mt:IfCategory label="Online Updates">
+ <div class="widget-pages widget orange">
+  <h3 class="widget-header">Top <$mt:CategoryLabel$> Story</h3>
+  <div class="widget-content">
+        <mt:SetVarBlock name="entry_id_nine"><$mt:BGNOnlineUpdatesTopBox$></mt:SetVarBlock>
+        <mt:Entries id="$entry_id_nine">
+		<$mt:Include module="Entry Summary Big"$>
+		</mt:Entries>
+  </div>
+</div>
+</mt:IfCategory>
+
+<div class="content-nav">
+  <a href="list/">Condensed View / <$mt:CategoryLabel$> Archive &raquo;</a>
+  </div>
+  
+<mt:IfCategory label="Campus">
+	<?php @include("http://bgnews.com/video_teaser_campus.php"); ?>
+</mt:IfCategory>
+
+<mt:IfCategory label="Sports">
+	<?php @include("http://bgnews.com/video_teaser_sports.php"); ?>
+<div class="include-blogs">
+<a href="http://bgnewssports.com/" title="BG News Sports Blog"><img src="http://bgnews.com/images/sports_blog_banner.gif" border="0" /></a>
+<br /><br />
+<MTMultiBlog include_blogs="36"><a href="<$mt:BlogURL$>">Subscribe to feed</a> <a href="<$mt:BlogURL$>atom.xml"><img src="http://bgnewssports.com/mt/mt-static/images/status_icons/feed.gif" alt="Subscribe to feed" width="9" height="9" border="0" title="Subscribe to feed" /></a></MTMultiBlog>
+<MTFeed uri="http://bgnewssports.com/atom.xml">
+  <ul>
+    <MTFeedEntries lastn="5">
+      <li><a href="<$MTFeedEntryLink encode_html="1"$>">
+        <$MTFeedEntryTitle$>
+        </a></li>
+    </MTFeedEntries>
+  </ul>
+</MTFeed>
+</div>
+<div class="content-nav">
+  <a href="http://blogs.bgnews.com/">View all Staff Blogs &raquo;</a>
+  </div>
+</mt:IfCategory>
+
+<mt:IfCategory label="Entertainment">
+<a href="http://blogs.bgnews.com/pulse/" title="BG News Culture Shock"><img src="http://bgnews.com/images/pulse_blog_banner.gif" border="0" /></a>
+<br /><br />
+<MTMultiBlog include_blogs="52"><a href="<$mt:BlogURL$>">Subscribe to feed</a> <a href="<$mt:BlogURL$>atom.xml"><img src="http://bgnewssports.com/mt/mt-static/images/status_icons/feed.gif" alt="Subscribe to feed" width="9" height="9" border="0" title="Subscribe to feed" /></a></MTMultiBlog>
+<MTFeed uri="http://blogs.bgnews.com/pulse/atom.xml">
+  <ul style="list-style-type:square;">
+    <MTFeedEntries lastn="3">
+      <li><a href="<$MTFeedEntryLink encode_html="1"$>">
+        <$MTFeedEntryTitle$>
+        </a></li>
+    </MTFeedEntries>
+  </ul>
+</MTFeed>
+<div class="content-nav">
+  <a href="http://blogs.bgnews.com/">View all Staff Blogs &raquo;</a>
+  </div>
+</mt:IfCategory>
+
+<mt:IfCategory label="City">
+<a href="http://bgviewsnetwork.com/food/" title="BG News Food Blog"><img src="http://bgnews.com/images/food_blog_banner.gif" border="0" /></a>
+<br /><br />
+<MTMultiBlog include_blogs="38"><a href="<$mt:BlogURL$>">Subscribe to feed</a> <a href="<$mt:BlogURL$>atom.xml"><img src="http://bgnewssports.com/mt/mt-static/images/status_icons/feed.gif" alt="Subscribe to feed" width="9" height="9" border="0" title="Subscribe to feed" /></a></MTMultiBlog>
+<MTFeed uri="http://bgviewsnetwork.com/food/atom.xml">
+  <ul style="list-style-type:square;">
+    <MTFeedEntries lastn="3">
+      <li><a href="<$MTFeedEntryLink encode_html="1"$>">
+        <$MTFeedEntryTitle$>
+        </a></li>
+    </MTFeedEntries>
+  </ul>
+</MTFeed>
+<div class="content-nav">
+  <a href="http://blogs.bgnews.com/">View all Staff Blogs &raquo;</a>
+  </div>
+</mt:IfCategory>
+
+<h2 style="font-family:Georgia, 'Times New Roman', Times, serif; font-size:16px; font-weight:bold;">More from <$mt:CategoryLabel$></h2>
+<div class="entry-listing">
+  <ul>
+    <MTEntries lastn="15" unique="1">
+      <li> <a href="<$MTEntryPermalink$>" style="text-decoration:none;"><span class="entry-listing-date">
+        <mt:EntryDate format="%b %e %Y" />
+        </span></a><a href="<$MTEntryPermalink$>"><span class="entry-listing-title">
+        <mt:EntryTitle remove_html="1" smarttrim="-55","…" />
+        </span></a> </li>
+    </MTEntries>
+  </ul>
+</div>
+<br><br>
+<!--<$mt:Include module="Content Navigation"$> -->
+<mt:If name="entry_ids">
+<mt:SetVarBlock name="html_body_footer" append="1">
+<script type="text/javascript" src="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=score&amp;blog_id=<$mt:BlogID$>&amp;f=scored,count&amp;jsonp=mtScore_cb&amp;id=<$mt:Var name="entry_ids"$>"></script>
+</mt:SetVarBlock>
+</mt:If>
+
+<$mt:Include module="Footer MTCS"$>
+

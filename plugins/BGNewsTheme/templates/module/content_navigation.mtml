@@ -1,0 +1,18 @@
+<div class="content-nav" style="font-size:10px;">
+<mt:ArchivePrevious>
+    <a href="<$mt:ArchiveLink$>">&laquo; <$mt:ArchiveTitle$></a> <span class="separator">|</span>
+</mt:ArchivePrevious>
+<mt:Unless name="main_index">
+    <a href="<$mt:Link template="main_index"$>">Home</a><mt:Unless name="archive_index"> <span class="separator">|</span> </mt:Unless>
+</mt:Unless>
+<mt:Unless name="archive_index">
+    <a href="<$mt:Link template="archive_index"$>">Archives</a>
+</mt:Unless>
+<mt:Unless name="issue-index">
+&nbsp;<span class="separator">|</span> <a href="http://bgnews.com/issue/">Issue Index</a>
+</mt:Unless>
+<mt:ArchiveNext>
+    <span class="separator">|</span> <a href="<$mt:ArchiveLink$>"><$mt:ArchiveTitle$> &raquo;</a>
+</mt:ArchiveNext>
+</div>
+

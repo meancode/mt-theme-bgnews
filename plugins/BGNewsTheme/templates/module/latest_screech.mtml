@@ -1,0 +1,17 @@
+ <MTMultiBlog include_blogs="91">
+ <mt:If tag="BlogEntryCount">
+    <mt:Entries lastn="1">
+        <mt:EntriesHeader>
+<div class="recent-screech">
+    <h3><a href="http://bgnews.com/rant/" style="text-decoration:none; color: #F36821;">Latest Screech</a></h3>
+    <div>
+        </mt:EntriesHeader>
+        <$mt:EntryBody remove_html="1" smarttrim="-120","…"$><br /><br />
+&nbsp;<em>&#8212; <a href="<$mt:EntryPermalink$>"><$mt:EntryTitle remove_html="1"$></a> by <$mt:AuthorDisplayName$></em>
+        <mt:EntriesFooter>
+    </div>
+</div>
+        </mt:EntriesFooter>
+    </mt:Entries>
+</mt:If>
+</MTMultiBlog>

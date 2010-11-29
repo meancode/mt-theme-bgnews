@@ -1,0 +1,80 @@
+<$mt:Var name="page_layout" value="layout-wtt"$>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$> - Author Archives</mt:SetVarBlock>
+<mt:SetVarBlock name="html_head">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$mt:Link template="rsd"$>" />
+<link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/bgnews_home.css" type="text/css" media="screen"/>
+<style type="text/css">
+<!--
+.archive-content-author ul li {
+	float: left;
+}
+.archive-content-author ul li a {
+	display: block;
+	width: 200px;
+}
+input#author_search {
+background-color:#EDEDED;
+border:1px solid #243f8f;
+margin:3px;
+padding:3px;
+}
+-->
+</style>
+</mt:SetVarBlock>
+<mt:SetVarBlock name="jquery_head">
+	<script type="text/javascript" src="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/js/jquery.quicksearch.js"></script>
+		<script type="text/javascript">
+		$(function()
+		{
+			$('input#author_search').quicksearch('ul#list_search li');
+		});
+		</script>
+</mt:SetVarBlock>
+<$mt:Include module="Header MTCS 1"$>
+<$mt:Include module="Header MTCS 2"$>
+<$mt:Include module="Header MTCS 3"$>
+<div id="bgnews-home-page">            
+<div class="page-asset asset">
+  <div class="asset-header">
+    <h1 id="page-title" class="asset-name"><$mt:BlogName encode_html="1"$> Author Archives</h1>
+  </div>
+  <div class="asset-content">
+    <div class="asset-body">
+	
+<p>This page lists the authors that have written for The BG News, past and present, and links to all of their articles we have online. Please use the field below to narrow your search. </p>
+<form action="#" id="author-archive" autocomplete="off">
+	<fieldset>
+		<label for="author_search">Filter </label>
+		<input type="text" name="search" value="" id="author_search" style="width:200px;" />
+	</fieldset>
+</form>
+
+<mt:IfArchiveTypeEnabled archive_type="Author">
+  <div class="archive-author archive">
+    <mt:ArchiveList archive_type="Author">
+      <mt:ArchiveListHeader>
+      <div class="archive-content archive-content-author">
+        <ul id="list_search">
+          </mt:ArchiveListHeader>
+          <li><a href="<$mt:ArchiveLink$>">
+            <$mt:ArchiveTitle$>
+            </a></li>
+          <mt:ArchiveListFooter>
+        </ul>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+  </div>
+</mt:IfArchiveTypeEnabled>
+
+
+
+    </div>
+  </div>
+  <div class="asset-footer">
+  	<$mt:Include module="Content Navigation"$>
+  </div>
+</div>
+</div><!-- // END Home Page -->
+<$mt:Include module="Footer MTCS 2-Col"$>
+

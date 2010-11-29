@@ -1,0 +1,199 @@
+<mt:SetVarBlock name="page_title"><$mt:ArchiveTitle$></mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$> - <$mt:Var name="page_title"$> Issue Index</mt:SetVarBlock>
+<mt:If name="datebased_archive">
+    <mt:SetVarBlock name="html_head">
+<link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/bgnews_monthly.css" type="text/css" media="screen"/>
+        <mt:ArchivePrevious><link rel="prev bookmark" href="<$mt:ArchiveLink$>" title="<$mt:ArchiveTitle encode_html="1"$>" /></mt:ArchivePrevious>
+        <mt:ArchiveNext><link rel="next bookmark" href="<$mt:ArchiveLink$>" title="<$mt:ArchiveTitle encode_html="1"$>" /></mt:ArchiveNext>
+    </mt:SetVarBlock>
+</mt:If>
+
+<mt:SetVarBlock name="body_class">mt-archive-listing mt-<$mt:Var name="archive_class"$></mt:SetVarBlock>
+
+<$mt:Include module="Header MTCS 1" body_class="$body_class"$>
+<$mt:Include module="Header MTCS 2" body_class="$body_class"$>
+<$mt:Include module="Header MTCS 3" body_class="$body_class"$>
+
+<img src="http://bgnews.com/images/bgnews_issue_index.gif" style="margin-bottom:15px;"/>
+
+
+
+<h1 id="page-title" class="archive-title">
+<mt:Unless name="datebased_archive">
+    <mt:IfArchiveType archive_type="Category">
+Archive: <em><$mt:ArchiveTitle$></em>
+    </mt:IfArchiveType>
+    <mt:IfArchiveType archive_type="Author">
+Archive: <em><$mt:ArchiveTitle$></em> 
+    </mt:IfArchiveType>
+<mt:Else>
+<$mt:Var name="page_title"$>
+</mt:Unless>
+</h1>
+
+<MTEntries category="Breaking News">
+<mt:EntriesHeader>
+<h4>Breaking News</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+
+<MTEntries category="Online Updates">
+<mt:EntriesHeader>
+<h4>Online Updates</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="Blotter">
+<mt:EntriesHeader>
+<h4>Blotter</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+
+<MTEntries category="Campus">
+<mt:EntriesHeader>
+<h4>Campus</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="City">
+<mt:EntriesHeader>
+<h4>City</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="Entertainment">
+<mt:EntriesHeader>
+<h4>Entertainment</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="In Focus">
+<mt:EntriesHeader>
+<h4>In Focus</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="Opinion">
+<mt:EntriesHeader>
+<h4>Opinion</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="Sports">
+<mt:EntriesHeader>
+<h4>Sports</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="Videos">
+<mt:EntriesHeader>
+<h4>Videos</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+
+<MTEntries category="Wire">
+<mt:EntriesHeader>
+<h4>Wire</h4>
+<div class="entry-listing">
+  <ul>
+    </mt:EntriesHeader>
+      <li><a href="<$MTEntryPermalink$>"><span class="entry-listing-title"><mt:EntryTitle remove_html="1" smarttrim="-70","…"/></span></a></li>
+    <mt:EntriesFooter>
+  </ul>
+</div>
+<br clear="all" />
+</mt:EntriesFooter>
+</MTEntries>
+<br><br>
+<$mt:Include module="Content Navigation"$>
+
+<mt:If name="entry_ids">
+<mt:SetVarBlock name="html_body_footer" append="1">
+<script type="text/javascript" src="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=score&amp;blog_id=<$mt:BlogID$>&amp;f=scored,count&amp;jsonp=mtScore_cb&amp;id=<$mt:Var name="entry_ids"$>"></script>
+</mt:SetVarBlock>
+</mt:If>
+
+<$mt:Include module="Footer MTCS"$>
+

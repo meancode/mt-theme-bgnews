@@ -1,0 +1,122 @@
+<mt:SetVarBlock name="page_title"><$mt:EntryTitle$></mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:EntryTitle encode_html="1"$> - <$mt:BlogName$></mt:SetVarBlock>
+<mt:SetVarBlock name="html_head" append="1">
+    <mt:EntryPrevious><link rel="prev bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>" /></mt:EntryPrevious>
+    <mt:EntryNext><link rel="next bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>" /></mt:EntryNext>
+    <$mt:EntryTrackbackData$>
+</mt:SetVarBlock>
+
+ <mt:SetVarBlock name="html_head" prepend="1">
+        <mt:SetVarBlock name="blog_id"><$mt:BlogID$></mt:SetVarBlock>
+        <mt:SetVarBlock name="blog_name"><$mt:BlogName encode_html="1"$></mt:SetVarBlock>
+        <mt:SetVarBlock name="blog_description"><$mt:BlogDescription$></mt:SetVarBlock>
+        <mt:SetVarBlock name="blog_url"><$mt:BlogURL$></mt:SetVarBlock>
+        <mt:SetVarBlock name="profile_view_url"><$mt:CGIPath$><$mt:CommunityScript$>?__mode=view&amp;blog_id=<$mt:BlogID$>&amp;id=</mt:SetVarBlock>
+        <link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/printarticle.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/print-hide.css" type="text/css" media="print"/>
+</mt:SetVarBlock>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<$mt:BlogLanguage$>" lang="<$mt:BlogLanguage$>" xmlns:fb="http://www.facebook.com/2008/fbml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<$mt:PublishCharset$>" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="imagetoolbar" content="no" />   
+    <link rel="icon" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/images/favicon.ico" TYPE="image/x-icon"> 
+    <link rel="shortcut icon" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/images/favicon.ico" TYPE="image/x-icon">
+    <title><$mt:Var name="title"$></title>
+    <$mt:Var name="html_head"$>
+<!-- // Google Ads -->
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
+</script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-2295494511037815");
+  GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-2295494511037815", "Bottom_Leaderboard");
+  GA_googleAddSlot("ca-pub-2295494511037815", "Right_Rectangle_01");
+  GA_googleAddSlot("ca-pub-2295494511037815", "Top_Leaderboard");
+</script>
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+<!-- // VisitorStats -->
+<MTVisitorStatsTracker>
+<!-- // END HTML HEAD -->
+</head>
+<body onLoad="window.print(); self.focus();">    
+<a name="top"></a>
+<div id="container">
+        <div id="container-inner">
+            <div id="hat" class="snap_noshots">
+	    </div>
+            <div class="ad snap_noshots">
+<div align="center">
+<script type="text/javascript">
+  GA_googleFillSlot("Top_Leaderboard");
+</script>
+</div>
+	    </div>
+            <div id="header">
+                <div id="header-inner">
+        		<div id="header-content">
+	<div class="slot snap_noshots">  
+	    <p class="tag">Serving <a href="http://www.bgsu.edu/">Bowling Green State University</a> and the <a href="http://www.bgchamber.net/">Bowling Green area</a> since 1920.</p>
+
+
+<img src="<$mt:StaticWebPath$>themes/bgviews/images/bgnews_print.gif" />
+
+
+                </div>
+            </div>
+            </div>
+	</div>
+    
+    <div id="dont-print" align="center">
+            <input type="button" name="button" id="button" value="Print" onClick="window.print();" />
+            <input type="button" name="button" id="button" value="Close" onClick="window.close();" />
+</div>
+
+
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+
+<$mt:Include module="Entry Detail Print"$>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+<div id="footer">
+<div class="column-wide"> <a href="http://bgviewsnetwork.com/"><img src="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/images/footer_print.gif" alt="BG Views" width="156" height="46" border="0" /></a>
+        <p>&copy; <?php echo date("Y");?> <a href="http://bgviewsnetwork.com/" title="BG Views"><strong>BG Views</strong></a>, All Rights Reserved <br>
+          BG Views, 204 West Hall, Bowling Green, OH 43403 <br>
+          <b>News</b> 419.372.6966 | <b>Fax</b> 419.372.9090 | <b>Ad Dept.</b> 419.372.2605 <br>
+          Comments? <a href="http://bgviewsnetwork.com/letters/">Letters to the Editors</a> | <a href="http://bgnews.com/staff/">Staff</a> | <a href="http://bgviewsnetwork.com/contact/web/">Webmaster</a><br>
+        Use of this site signifies acceptance of our <a href="http://bgviewsnetwork.com/tos/">Terms of Use</a> and <a href="http://bgviewsnetwork.com/privacy/">Privacy Policy</a></p>
+      </div>
+  </div>
+  </div>
+<!--  </div> -->
+  <$mt:Var name="html_body_footer"$>
+
+<!-- // Google Analytics BG News -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-3820627-1");
+pageTracker._setDomainName(".bgnews.com");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+  </body>
+  </html>
+

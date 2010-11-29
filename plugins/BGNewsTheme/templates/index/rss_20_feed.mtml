@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+	xmlns:media="http://search.yahoo.com/mrss/"
+>
+   <channel>
+      <title><$MTBlogName remove_html="1" encode_xml="1"$></title>
+      <atom:link href="<$MTBlogURL$>rss.xml" rel="self" type="application/rss+xml" />
+      <link><$MTBlogURL$></link>
+      <description><$MTBlogDescription remove_html="1" encode_xml="1"$></description>
+      <pubDate><MTEntries lastn="1"><$MTEntryDate format_name="rfc822"$></MTEntries></pubDate>
+      <generator>http://www.sixapart.com/movabletype/</generator>
+      <language><$MTBlogLanguage ietf="1"$></language>
+      <sy:updatePeriod>hourly</sy:updatePeriod>
+      <sy:updateFrequency>1</sy:updateFrequency>
+      <image>
+           <url><$mt:StaticWebPath$>themes/bgviews/images/rss_logo.gif</url>
+           <title><$MTBlogName remove_html="1" encode_xml="1"$></title>
+           <link><$MTBlogURL$></link>
+           <width>133</width>
+           <height>70</height>
+      </image>
+
+      <MTEntries lastn="15">
+      <item>
+         <title><$MTEntryTitle remove_html="1" encode_xml="1"$></title>
+         <link><$MTEntryPermalink encode_xml="1"$></link>
+         <comments><$MTEntryPermalink encode_xml="1"$>#comments</comments>
+         <pubDate><$MTEntryDate format_name="rfc822"$></pubDate>
+         <dc:creator><$mt:EntryAuthorDisplayName$></dc:creator>
+         <MTEntryCategories>
+         <category><![CDATA[<$MTCategoryLabel remove_html="1"$>]]></category>
+         </MTEntryCategories>
+         <guid><$MTEntryPermalink encode_xml="1"$></guid>
+         <description><$MTEntryBody encode_xml="1" convert_breaks="0" words="50"$></description>
+      </item>
+      </MTEntries>
+   </channel>
+</rss>

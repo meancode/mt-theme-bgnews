@@ -1,0 +1,78 @@
+<mt:IfArchiveType type="individual">
+<div align="right" style="padding-bottom:3px;">
+<table id="article_tools_table" width="344" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+		  <img src="http://bgnews.com/images/article_tools.gif" alt="" width="84" height="16" border="0" /></td>
+		<td><a href="#" title="Print <$MTEntryTitle encode_html="0">"><img src="http://bgnews.com/images/article_tools_print.gif" alt="" width="56" height="16" border="0" onClick="MM_openBrWindow('<$mt:BlogURL$>print/<mt:IfCategory><$mt:CategoryBasename$>/</mt:IfCategory><$mt:EntryBasename separator="-"$>/?utm_source=desktop&utm_medium=clicks&utm_campaign=printarticle','printarticle','scrollbars=yes,resizable=yes,width=800,height=400')" /></a></td>
+		<td><a href="#spreadtheword" title="Email to a friend"><img src="http://bgnews.com/images/article_tools_email.gif" alt="" width="56" height="16" border="0" /></a></td>
+		<td><img src="http://bgnews.com/images/article_tools_share.gif" alt="" width="54" height="16" border="0" /></td>
+		<td><a href="#spreadtheword" title="Share on Facebook"><img src="http://bgnews.com/images/article_tools_facebook.gif" alt="" width="20" height="16" border="0" /></a></td>
+		<td><a href="#spreadtheword" title="Share on Twitter"><img src="http://bgnews.com/images/article_tools_twitter.gif" width="19" height="16" border="0" ></a>
+        </td>
+		<td><a href="#spreadtheword" title="Share on Google Reader"><img src="http://bgnews.com/images/article_tools_google.gif" alt="" width="22" height="16" border="0" /></a></td>
+		<td><a href="#spreadtheword"><img src="http://bgnews.com/images/article_tools_more.gif" alt="" width="33" height="16" border="0" /></a></td>
+	</tr>
+</table>
+</div><br clear="all" />
+<mt:Else>
+</mt:IfArchiveType>
+</mt:If>
+<mt:If tag="EntryAuthorDisplayName">
+	<mt:If tag="EntryAuthorDisplayName" like="(Associated Press|The BG News|The College News Network)">
+        By <span class="vcard author"><$mt:EntryAuthorDisplayName$>
+<mt:Else>
+        By <span class="vcard author"><a href="/profile/<mt:EntryAuthorUsername>"><$mt:EntryAuthorDisplayName$></a><mt:If tag="authordatabyline_position">, <mt:authordatabyline_position></mt:If>
+        </mt:If>
+</mt:If>
+<div class="asset-meta">
+<mt:If tag="EntryCategory">
+<mt:IfArchiveType type="individual">
+<div style="float:right;">
+<mt:IfCategory label="City" type="primary">
+<a href="http://bgnews.com/city/" rel="tag"><img src="http://bgnews.com/images/bgnews_city.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Blotter" type="primary">
+<a href="http://bgnews.com/blotter/" rel="tag"><img src="http://bgnews.com/images/bgnews_blotter.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Campus" type="primary">
+<a href="http://bgnews.com/campus/" rel="tag"><img src="http://bgnews.com/images/bgnews_campus.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Sports" type="primary">
+<a href="http://bgnews.com/sports/" rel="tag"><img src="http://bgnews.com/images/bgnews_sports.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Regional" type="primary">
+<a href="http://bgnews.com/wire/" rel="tag"><img src="http://bgnews.com/images/bgnews_wire.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Opinion" type="primary">
+<a href="http://bgnews.com/opinion/" rel="tag"><img src="http://bgnews.com/images/bgnews_opinion.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Entertainment" type="primary">
+<a href="http://bgnews.com/entertainment/" rel="tag"><img src="http://bgnews.com/images/bgnews_entertainment.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="In Focus" type="primary">
+<a href="http://bgnews.com/infocus/" rel="tag"><img src="http://bgnews.com/images/bgnews_infocus.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Breaking News" type="secondary">
+<a href="http://bgnews.com/breaking/" rel="tag"><img src="http://bgnews.com/images/bgnews_breaking.gif" border="0" /></a>
+</mt:IfCategory>
+<mt:IfCategory label="Online Updates" type="secondary">
+<a href="http://bgnews.com/updates/" rel="tag"><img src="http://bgnews.com/images/bgnews_updates.gif" border="0" /></a>
+</mt:IfCategory>
+</div>
+<mt:Else>
+</mt:IfArchiveType>
+</mt:If>
+    <span class="byline">
+        <abbr class="published" title="<$mt:EntryDate format="%b %d, %Y %I:%M %p"$>">Published: <$mt:EntryDate format="%B %d, %Y"$><mt:If tag="entrydataupdated"> (Updated: <mt:entrydataupdated format="%b %d, %Y">) </mt:If></abbr>
+    </span>
+<mt:Unless name="hide_counts" eq="1">
+    <mt:IfCommentsActive><a href="<$mt:EntryPermalink$>#comments" class="entry-meta-comments" title="<$mt:EntryCommentCount singular="1 Comment" plural="# Comments"$>"><$mt:EntryCommentCount$></a></mt:IfCommentsActive>
+    <a href="javascript:void(0)" title="Vote/Favorite this article" onclick="return mtScore(<$mt:EntryID$>)" id="scoring-id-<$mt:EntryID$>" class="scoring">
+        <span id="scoring-vote-<$mt:EntryID$>" class="scoring-vote">Vote</span>
+        <span id="scoring-score-<$mt:EntryID$>" class="scoring-score"><$mt:EntryScore namespace="community_pack_recommend" singular="1" plural="#" none="0"$></span>
+        <span id="scoring-score-label-<$mt:EntryID$>" class="scoring-score-label"><$mt:EntryScore namespace="community_pack_recommend" singular="&nbsp;" plural="&nbsp;" none="&nbsp;"$></span>
+    </a>
+</mt:Unless>
+</div>
+

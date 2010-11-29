@@ -1,0 +1,23 @@
+RewriteEngine on
+RewriteRule ^profile/(.*)$ /mt/mt-cp.cgi?__mode=view&blog_id=66&username=$1 [P,L]
+RewriteRule ^tag/(.*)$ /mt/mt-search.fcgi?blog_id=66&tag=$1 [P,L]
+
+ErrorDocument 400 /errors/400.shtml
+ErrorDocument 401 /errors/401.shtml
+ErrorDocument 403 /errors/403.shtml
+ErrorDocument 404 /errors/404.shtml
+ErrorDocument 500 /errors/500.shtml
+
+<mt:Ignore>
+<mt:Entries lastn="99999">
+Redirect 301  /<mt:EntryID> <$mt:EntryLink$>
+</mt:Entries>
+
+
+<MTMultiBlog include_blogs="36">
+<mt:Entries lastn="99999">
+Redirect 301  /<mt:EntryID> <$mt:EntryLink$>?utm_source=twitter&utm_medium=pingfm&utm_campaign=bgnewssports
+</mt:Entries>
+</MTMultiBlog>
+</mt:Ignore>
+

@@ -1,0 +1,118 @@
+<$mt:Include module="iPhone HTML Head"$>
+    <body>
+
+        <div id="header">
+        <mt:SetVarBlock name="prev_entry"><mt:EntryPrevious>1</mt:EntryPrevious></mt:SetVarBlock>
+        <mt:SetVarBlock name="next_entry"><mt:EntryNext>1</mt:EntryNext></mt:SetVarBlock>
+            <a rel="home" href="<$mt:BlogURL$>m/" class="navigation">Home</a>
+        <mt:If name="prev_entry">
+            <mt:EntryPrevious><a rel="prev" href="<$mt:BlogURL$>m/<mt:IfCategory><$mt:CategoryBasename$>/</mt:IfCategory><$mt:EntryBasename separator="-"$>/" class="navigation">Prev</a></mt:EntryPrevious>
+        <mt:Else>
+            <span rel="prev" class="navigation prev disable">Prev</span>
+        </mt:If>
+        <mt:If name="next_entry">
+            <mt:EntryNext><a rel="next" href="<$mt:BlogURL$>m/<mt:IfCategory><$mt:CategoryBasename$>/</mt:IfCategory><$mt:EntryBasename separator="-"$>/" class="navigation">Next</a></mt:EntryNext>
+        <mt:Else>
+            <span rel="next" class="navigation next disable">Next</span>
+        </mt:If>
+        </div>
+    
+          <$mt:Include module="iPhone BG Views Header"$>
+
+
+<div id="content" class="entry">
+            <h1><$mt:EntryTitle$></h1>
+
+<div class="asset-meta"> <span class="byline">
+                  <mt:If tag="EntryAuthorDisplayName"> By <span class="vcard author">
+                    <$mt:EntryAuthorLink show_hcard="1"$>
+                    </span> on <abbr class="published" title="<$mt:EntryDate format_name="iso8601"$>">
+                    <$mt:EntryDate format="%b %d, %Y"$>
+                    </abbr>
+                    <mt:Else>
+                    <abbr class="published" title="<$mt:EntryDate format_name="iso8601"$>">
+                    <$mt:EntryDate format="%x %X"$>
+                    </abbr> </mt:If>
+                  </span>
+                  <mt:IfCommentsActive><br><a href="#comments">
+                    <$mt:EntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$>
+                    </a> </mt:IfCommentsActive>
+                </div>
+
+<div id="inside-content">
+<$mt:EntryBody blogshow="html"$>
+<$mt:EntryMore$>
+
+              <div class="asset-footer">
+                <mt:IfArchiveTypeEnabled archive_type="Category">
+                  <mt:If tag="EntryCategories">
+                    <div class="entry-categories">
+                      <br><br><strong>Filed Under:</strong><mt:EntryCategories glue=','>
+                            <$mt:CategoryLabel$>
+                            </mt:EntryCategories>
+                    </div>
+
+                  </mt:If>
+                </mt:IfArchiveTypeEnabled>
+              </div>
+            </div>
+
+<$mt:Include module="Related Entries Mobile"$>
+
+<mt:Ignore>
+<!-- Display comments for the entry/page or commenting form if entry/page is accepting comments -->
+</mt:Ignore>
+<mt:IfCommentsActive>
+<div id="comments" class="comments">
+
+
+    <mt:Ignore>
+    <!-- Display comments -->
+    </mt:Ignore>
+    <mt:Comments>
+        <mt:CommentsHeader>
+    <h2 class="comments-header"><$mt:EntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></h2>
+    <div class="comments-content">
+        </mt:CommentsHeader>
+        <div id="comment-<$mt:CommentID$>" class="comment<mt:IfCommentParent> comment-reply</mt:IfCommentParent>">
+            <div class="inner">
+                <div class="comment-header">
+                    <div class="asset-meta commenter-byline">
+                        <span class="byline">
+                            <$mt:CommentAuthorIdentity$>
+        <mt:IfCommentParent>
+                            <span class="vcard author"><$mt:CommentAuthorLink$></span> replied to <mt:CommentParent><$mt:CommentAuthor$></mt:CommentParent>
+        <mt:Else>
+                            <span class="vcard author"><$mt:CommentAuthorLink$></span>
+        </mt:IfCommentParent>
+                            | <abbr class="published" title="<$mt:CommentDate format_name="iso8601"$>"><$mt:CommentDate format="%b %d, %Y"$></abbr>
+        
+                        </span>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <$mt:CommentBody$>
+                </div>
+            </div>
+        </div>
+        <mt:CommentsFooter>
+    </div>
+        </mt:CommentsFooter>
+    </mt:Comments>
+</mt:IfCommentsActive>
+
+
+</div>
+
+        </div>
+    <br clear="all" />
+<$mt:Include module="iPhone Footer Ad Slot"$>
+    <div id="nav">
+          <$mt:Include module="iPhone Footer Nav Inside"$>
+ </div>
+
+<div id="footer" style="background-color:#243f8f;">
+          <$mt:Include module="iPhone Footer"$>
+</div>
+    </body>
+</html>

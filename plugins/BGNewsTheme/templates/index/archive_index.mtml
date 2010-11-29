@@ -1,0 +1,349 @@
+<$mt:Var name="page_layout" value="layout-wtt"$>
+<mt:SetVarBlock name="this_year">2010</mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$> - Archives</mt:SetVarBlock>
+<mt:SetVarBlock name="html_head">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$mt:Link template="rsd"$>" />
+<link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/bgnews_home.css" type="text/css" media="screen"/>
+<style type="text/css">
+<!--
+#archives-table tr th {
+	width: 50px;
+	text-align: left;
+}
+#pdf-table tr th {
+	width: 50px;
+	text-align: left;
+}
+
+.archive .archive-content {
+margin-bottom:15px;
+}
+.asset-header, .asset-content, .asset-body, .comments-header, .comment-content, .comment-footer, .comments-open-header, .comments-open-content, #comments-open-footer, .comments-closed, #comment-form-external-auth, #comment-greeting, .comments-open-moderated, #comment-form-name, #share-email-to, #share-email-from, #share-email-message, #comment-form-email, #comment-form-url, #comment-form-remember-me, #comment-form-reply, #comments-open-text, .trackbacks-header, .trackbacks-info, .trackback-content, .trackback-footer, .archive-content, .search-form-header, .search-results-header {
+margin-bottom:0em;
+}
+
+-->
+</style>
+</mt:SetVarBlock>
+<mt:SetVarBlock name="jquery_head">
+
+</mt:SetVarBlock>
+<$mt:Include module="Header MTCS 1"$>
+<$mt:Include module="Header MTCS 2"$>
+<$mt:Include module="Header MTCS 3"$>
+<div id="bgnews-home-page">            
+<div class="page-asset asset">
+  <div class="asset-header">
+    <h1 id="page-title" class="asset-name"><$mt:BlogName encode_html="1"$> Archives</h1>
+  </div>
+  <div class="asset-content">
+    <div class="asset-body">
+	
+<p>This page contains the daily and monthly archives of The BG News. We are in the process of getting our back catalog of issues and author archives online.  </p>
+
+<div style="width: 630px;">
+	
+<mt:IfArchiveTypeEnabled archive_type="Daily">
+  <div class="archive-category archive">
+      <h2 class="archive-header">Issue Index</h2>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:200px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="this"><mt:If tag="CalendarDay" eq="1"><mt:CalendarDate format="%B %Y"></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="this">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:200px; float:left; clear: none; margin-bottom:0px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="last"><mt:If tag="CalendarDay" eq="1"><mt:CalendarDate format="%B %Y"></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="last">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+<p align="right"><a href="http://bgnews.com/issue/">View Previous Issues &raquo;</a></p>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+
+  </div>  
+</mt:IfArchiveTypeEnabled>	
+</div><!-- // END Issue Index Block -->
+
+<div style="width: 630px;">
+<div class="archive-category archive">
+  <h2 class="archive-header">Monthly Index</h2>
+  <div class="archive-content">
+
+<table id="archives-table">
+<mt:ArchiveList type="Yearly" sort_order="ascend">
+    <mt:ArchiveListHeader><tr><$mt:ArchiveDate format="%Y" setvar="start_year"$></mt:ArchiveListHeader>
+    <th><$mt:ArchiveDate format="%Y"$></th>
+    <$mt:ArchiveDate format="%Y" setvar="archive_year"$>
+    <$mt:SetVar name="is_posts_year_{$archive_year}" value="1"$>
+    <mt:ArchiveList type="Monthly">
+        <$mt:ArchiveDate format="%m_%Y" setvar="month_year"$>
+        <mt:SetVarBlock name="links_{$month_year}"><a href="<$mt:ArchiveLink$>"><$mt:ArchiveDate format="%b"$></a></mt:SetVarBlock>
+    </mt:ArchiveList>
+    <mt:ArchiveListFooter></tr><$mt:ArchiveDate format="%Y" setvar="end_year"$></mt:ArchiveListFooter>
+</mt:ArchiveList>
+<mt:For var="month" from="1" to="12">
+    <tr>
+    <mt:For var="year" from="$start_year" to="$end_year">
+        <mt:If name="is_posts_year_{$year}">
+            <mt:SetVarBlock name="month_year"><$mt:Var name="month" sprintf="%02d"$>_<$mt:Var name="year"$></mt:SetVarBlock>
+        <td><$mt:Var name="links_{$month_year}" default="&nbsp;"$></td>
+        </mt:If>
+    </mt:For>
+    </tr>
+</mt:For>
+</table>
+  </div>
+</div>
+</div><!-- // END Monthly Archive Block -->
+
+<div style="width: 630px;">
+<div class="archive-category archive">
+  <h2 class="archive-header">Author Archives</h2>
+  <div class="archive-content">
+
+
+<table width="628" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+    <p><strong>Editors:</strong></p>
+    <p><strong>Editor-in-Chief</strong>, <a href="http://bgnews.com/author/heather-linder/">Heather Linder</a><br>
+  <strong>Managing Editor</strong>: <a href="http://bgnews.com/author/becky-tener/">Becky Tener</a><br />
+  <strong>News</strong>: <a href="http://bgnews.com/author/alissa-oneill/">Alissa O'Neill</a><br />
+  <strong>City</strong>: <a href="http://bgnews.com/author/jason-henry/">Jason Henry</a><br />
+  <strong>In Focus</strong>: <a href="http://bgnews.com/author/kate-snyder/">Kate Snyder</a><br />
+  <strong>Special Sections</strong>: <a href="http://bgnews.com/author/jess-james/">Jess James</a><br />
+  <strong>Copy Chief</strong>: <a href="http://bgnews.com/author/marisha-pietrowski/">Marisha Pietrowski</a><br />
+  <strong>Pulse</strong>: <a href="http://bgnews.com/author/matt-liasse/">Matt Liasse</a><br />
+  <strong>Sports</strong>: <a href="http://bgnews.com/author/paul-barney/">Paul Barney</a><br />
+  <strong>Assistant Sports</strong>: <a href="http://bgnews.com/author/ryan-satkowiak/">Ryan Satkowiak</a><br>
+  <strong>Photo Editor</strong>: Andrea Fehl  <br />
+<strong>Web Editor</strong>: <a href="http://bgnews.com/author/sean-shapiro/">Sean Shapiro</a></p>
+    <p><strong>Photographers:</strong></p>
+    <p>Tyler Stabile<br>
+      Micheal Reed<br>
+      Nathan Elekonich<br>
+      Tom Nepomucemo<br>
+      Lauren Poff</p></td>
+    <td width="33%" valign="top"><p><strong>Beat Reporters:</strong></p>
+      <p><strong>USG</strong>: <a href="http://bgnews.com/author/max-filby/">Max Filby</a><br />
+      <strong>Grad Students</strong>: <a href="http://bgnews.com/author/jess-james/">Jess James</a><br />
+      <strong>Reslife</strong>: <a href="http://bgnews.com/author/emily-tucker/">Emily Tucker</a><br />
+      <strong>Faculty</strong>: <a href="http://bgnews.com/author/alissa-widman/">Alissa Widman</a><br />
+      <strong>Environment</strong>: Asia Rapai<br />
+      <strong>Health</strong>: <a href="http://bgnews.com/author/allison-dunn/">Allison Dunn</a><br />
+      <strong> Police</strong>: <a href="http://bgnews.com/author/christine-talbert/">Christine Talbert</a><br />
+      <strong>Master Plan</strong>: <a href="http://bgnews.com/author/kate-snyder/">Kate Snyder</a><br />
+    <strong>Centennial</strong>: <a href="http://bgnews.com/author/becky-tener/">Becky Tener</a></p>
+    <p><strong>Columnists:</strong></p>
+    <p><a href="http://bgnews.com/author/amanda-mcguire-rzicznek/">Amanda McGuire Rzicnek</a><br />
+  Andy Baltes (Cartoonist)<br />
+  <a href="http://bgnews.com/author/anthony/">Anthony Bryson</a><br />
+  <a href="http://bgnews.com/author/bryan-warrick/">Bryan Warrick</a><br />
+  <a href="http://bgnews.com/author/hannah-bealer/">Hannah Bealer</a><br />
+  <a href="http://bgnews.com/author/kate-noftsinger/">Kate Noftsinger</a><br />
+  <a href="http://bgnews.com/author/michele-wysocki/">Michele Wysocki</a> (GeoJourney)<br />
+  <a href="http://bgnews.com/author/mike-thurau/">Mike Thurau</a><br />
+  <a href="http://bgnews.com/author/phillip-schurrer/">Phil Schurrer</a> (Faculty Columnist)<br />
+  Sam Killermann (Cartoonist)</p></td>
+    <td width="33%" valign="top"><p><strong>Sports:</strong></p>
+      <p><a href="http://bgnews.com/author/ben-trumpower/">Ben Trumpower</a><br />
+        <a href="http://bgnews.com/author/bryan-filipponi/">Bryan Filipponi</a><br />
+        <a href="http://bgnews.com/author/cj-watson/">CJ Watson</a><br />
+        <a href="http://bgnews.com/author/justin-onslow/">Justin Onslow</a><br />
+      Kristi Kopaniasz<br />
+      <a href="http://bgnews.com/author/jamar-lark/">Jamar Lark</a><br />
+      <a href="http://bgnews.com/author/matt-nye/">Matt Nye</a><br />
+      <a href="http://bgnews.com/author/nick-king/">Nick King</a><br />
+      <a href="http://bgnews.com/author/sean-shapiro/">Sean Shapiro</a><br />
+      <a href="http://bgnews.com/author/brendan-packert/">Brendan Packert</a></p>
+    <p><strong>Pulse:</strong></p>
+    <p><a href="http://bgnews.com/author/troy-chamberlain/">Troy Chamberlain</a><br />
+      <a href="http://bgnews.com/author/zach-gase/">Zach Gase</a></p>
+    <p><strong>Videographers:</strong></p>
+    <p><a href="http://bgnews.com/profile/Jared.Jacobs">Jared Jacobs</a></p></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="right" valign="top"><a href="http://bgnews.com/archives/author.php">View All Authors  &raquo;</a></td>
+  </tr>
+</table>
+
+
+  </div>
+</div>
+</div><!-- // END Author Archive Block -->
+
+<a name="pdf"></a>
+<div style="width: 630px;">
+<div class="archive-category archive">
+  <h2 class="archive-header">PDF Archives</h2>
+  <div class="archive-content">
+	<p>The BG News and Student Publications use <a class="" href="http://issuu.com/bgviews">Issuu</a> to manage our PDF archives. If you wish to download a PDF, you will need an Issuu account. You can also subscribe to our PDF archive with your Issuu account. Please <a class="" href="http://bgviewsnetwork.com/contact/web/">contact us</a> if you are having an <i>issue</i> with Issuu. You can also download <a class="" href="http://m.issuu.com/" target="_blank">Issuu</a> on an Android device, and view our newspapers that way.</p>
+	
+<table id="pdf-table">
+  <tr>
+    <th>2007</th>
+    <th>2008</th>
+    <th>2009</th>
+    <th>2010</th>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/january-2007/">Jan</a></td>
+    <td><a href="http://bgnews.com/pdf/january-2008/">Jan</a></td>
+    <td><a href="http://bgnews.com/pdf/january-2009/">Jan</a></td>
+    <td><a href="http://bgnews.com/pdf/january-2010/">Jan</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/february-2007/">Feb</a></td>
+    <td><a href="http://bgnews.com/pdf/february-2008/">Feb</a></td>
+    <td><a href="http://bgnews.com/pdf/february-2009/">Feb</a></td>
+    <td><a href="http://bgnews.com/pdf/february-2010/">Feb</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/march-2007/">Mar</a></td>
+    <td><a href="http://bgnews.com/pdf/march-2008/">Mar</a></td>
+    <td><a href="http://bgnews.com/pdf/march-2009/">Mar</a></td>
+    <td><a href="http://bgnews.com/pdf/march-2010/">Mar</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/april-2007/">Apr</a></td>
+    <td><a href="http://bgnews.com/pdf/april-2008/">Apr</a></td>
+    <td><a href="http://bgnews.com/pdf/april-2009/">Apr</a></td>
+    <td><a href="http://bgnews.com/pdf/april-2010/">Apr</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/may-2007/">May</a></td>
+    <td><a href="http://bgnews.com/pdf/may-2008/">May</a></td>
+    <td><a href="http://bgnews.com/pdf/may-2009/">May</a></td>
+    <td><a href="http://bgnews.com/pdf/may-2010/">May</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/june-2007/">Jun</a></td>
+    <td><a href="http://bgnews.com/pdf/june-2008/">Jun</a></td>
+    <td><a href="http://bgnews.com/pdf/june-2009/">Jun</a></td>
+    <td><a href="http://bgnews.com/pdf/june-2010/">Jun</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/july-2007/">Jul</a></td>
+    <td><a href="http://bgnews.com/pdf/july-2008/">Jul</a></td>
+    <td><a href="http://bgnews.com/pdf/july-2009/">Jul</a></td>
+    <td><a href="http://bgnews.com/pdf/july-2010/">Jul</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/august-2007/">Aug</a></td>
+    <td><a href="http://bgnews.com/pdf/august-2008/">Aug</a></td>
+    <td><a href="http://bgnews.com/pdf/august-2009/">Aug</a></td>
+    <td><a href="http://bgnews.com/pdf/august-2010/">Aug</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/september-2007/">Sep</a></td>
+    <td><a href="http://bgnews.com/pdf/september-2008/">Sep</a></td>
+    <td><a href="http://bgnews.com/pdf/september-2009/">Sep</a></td>
+    <td><a href="http://bgnews.com/pdf/september-2010/">Sep</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/october-2007/">Oct</a></td>
+    <td><a href="http://bgnews.com/pdf/october-2008/">Oct</a></td>
+    <td><a href="http://bgnews.com/pdf/october-2009/">Oct</a></td>
+    <td><a href="http://bgnews.com/pdf/october-2010/">Oct</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/november-2007/">Nov</a></td>
+    <td><a href="http://bgnews.com/pdf/november-2008/">Nov</a></td>
+    <td><a href="http://bgnews.com/pdf/november-2009/">Nov</a></td>
+    <td><a href="http://bgnews.com/pdf/november-2010/">Nov</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://bgnews.com/pdf/december-2007/">Dec</a></td>
+    <td><a href="http://bgnews.com/pdf/december-2008/">Dec</a></td>
+    <td><a href="http://bgnews.com/pdf/december-2009/">Dec</a></td>
+    <td><a href="http://bgnews.com/pdf/december-2010/">Dec</a></td>
+  </tr>
+</table>
+
+
+  </div>
+</div>
+</div><!-- // END PDF Archive Block -->
+
+
+    </div>
+  </div>
+  <div class="asset-footer"></div>
+</div>
+</div><!-- // END Home Page -->
+<$mt:Include module="Footer MTCS 2-Col"$>
+

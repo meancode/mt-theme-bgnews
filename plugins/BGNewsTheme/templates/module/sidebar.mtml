@@ -1,0 +1,20 @@
+  <div id="beta">
+    <div id="beta-inner">
+        <$mt:Var name="profile_widgets"$>
+<mt:If name="page_columns" eq="2">
+        <$mt:WidgetSet name="Activity Widgets"$>
+        <$mt:WidgetSet name="Archive Widgets"$>
+<mt:Else name="page_columns" eq="3">
+        <$mt:WidgetSet name="Archive Widgets"$>
+</mt:If>
+    </div>
+</div>
+<mt:If name="page_columns" eq="3">
+<div id="gamma">
+    <div id="gamma-inner">
+<div class="openx-ad"><$mt:Include module="Zone Rectangle 1 300x250"$></div>
+<div class="openx-ad2"><$mt:Include module="Zone Rectangle 2 300x250"$></div>
+        <$mt:WidgetSet name="Activity Widgets"$>
+    </div>
+</div>
+</mt:If>

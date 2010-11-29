@@ -1,0 +1,20 @@
+<mt:SetVarBlock name="page_title"><$mt:PageTitle$></mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:Var name="page_title"$> - <$mt:BlogName encode_html="1"$></mt:SetVarBlock>
+<mt:SetVarBlock name="html_head"><$mt:EntryTrackbackData$></mt:SetVarBlock>
+
+<$mt:Include module="Header MTCS 1" body_class="mt-page-archive"$>
+<$mt:Include module="Header MTCS 2" body_class="mt-page-archive"$>
+<$mt:Include module="Header MTCS 3" body_class="mt-page-archive"$>
+
+<style type="text/css">
+<!--
+#alpha-inner {
+    padding-right: 20px;
+}
+-->
+</style>
+
+<$mt:Include module="Page Detail Blogs"$>
+
+<$mt:Include module="Footer MTCS"$>
+

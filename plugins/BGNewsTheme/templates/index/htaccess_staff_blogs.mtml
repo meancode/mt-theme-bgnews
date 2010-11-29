@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteRule ^profile/(.*)$ /mt/mt-cp.cgi?__mode=view&blog_id=66&username=$1 [P,L]
+RewriteRule ^tag/(.*)$ /mt/mt-search.fcgi?blog_id=66&tag=$1 [P,L]
+
+ErrorDocument 400 /errors/400.shtml
+ErrorDocument 401 /errors/401.shtml
+ErrorDocument 403 /errors/403.shtml
+ErrorDocument 404 /errors/404.shtml
+ErrorDocument 500 /errors/500.shtml

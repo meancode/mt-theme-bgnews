@@ -1,0 +1,18 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" >
+<MTEntries days="14" blog_ids="66">
+  <url>
+    <loc><$MTEntryPermalink encode_xml="1"$></loc>
+    <news:news>
+      <news:publication>
+         <news:name>BG News</news:name>
+         <news:language><$mt:BlogLanguage$></news:language>
+      </news:publication>
+      <mt:If tag="entrydatagnewsgenres"><news:genres><mt:entrydatagnewsgenres></news:genres></mt:If>
+      <news:publication_date><$MTEntryModifiedDate utc="1" format="%Y-%m-%dT%H:%M:%S-05:00"$></news:publication_date>
+      <news:title><$MTEntryTitle encode_xml="1"$></news:title>
+      <mt:If tag="entrydatagnewskeywords"><news:keywords><mt:entrydatagnewskeywords></news:keywords></mt:If>
+    </news:news>
+  </url>
+</MTEntries>
+</urlset>

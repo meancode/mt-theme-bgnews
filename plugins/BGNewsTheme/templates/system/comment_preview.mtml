@@ -1,0 +1,23 @@
+<mt:SetVarBlock name="page_title">Comment on <$mt:EntryTitle$></mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$>: <$mt:Var name="page_title"$></mt:SetVarBlock>
+<mt:SetVarBlock name="html_head"> 
+    <script type="text/javascript"> 
+    /* <![CDATA[ */ 
+    var user = <$mt:UserSessionState$>; 
+    var is_preview = true; 
+    /* ]]> */ 
+    </script> 
+</mt:SetVarBlock>
+
+<$mt:Include module="Header MTCS 1" body_class="mt-comment-preview"$>
+<$mt:Include module="Header MTCS 2" body_class="mt-comment-preview"$>
+<$mt:Include module="Header MTCS 3" body_class="mt-comment-preview"$>
+
+<h1 id="page-title">Previewing your Comment</h1>
+
+<$mt:Include module="Comment Detail Blogs"$>
+
+<$mt:Include module="Comments Blogs"$>
+
+<$mt:Include module="Footer MTCS"$>
+

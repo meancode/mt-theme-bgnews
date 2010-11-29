@@ -1,0 +1,58 @@
+<$mt:Var name="page_layout" value="layout-wtt"$>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$> - Bowling Green State University</mt:SetVarBlock>
+<mt:SetVarBlock name="html_head">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$mt:Link template="rsd"$>" />
+<link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/bgnews_home.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="http://bgnews.com/anythingslider.css" type="text/css" media="screen"/>
+</mt:SetVarBlock>
+<mt:SetVarBlock name="jquery_head">
+<$mt:Include module="Weather Script"$>
+<$mt:Include module="AnythingSlider Script"$>
+</mt:SetVarBlock>
+<$mt:Include module="Header MTCS 1" body_class="mt-main-index"$>
+<$mt:Include module="Header MTCS 2" body_class="mt-main-index"$>
+<$mt:Include module="Header MTCS 3" body_class="mt-main-index"$>
+          
+<div id="bgnews-home-page">            
+            
+<div id="bgnews-social-bar">   
+<$mt:Include module="Social Bar Home"$>
+</div><!-- // END Social Bar -->
+
+<$mt:Include module="AnythingSlider Home"$>
+
+<br clear="all" />
+<div id="bgnews-home-left">  
+    <$mt:Include module="Video Teaser"$>
+    <$mt:Include widget="Mobile Edition Teaser"$>
+    <$mt:Include widget="Campus Cash"$>
+    <$mt:Include widget="Housing Guide Teaser"$>
+    <$mt:Include widget="BG Bucks Teaser"$>
+    <$mt:Include module="Issues This Month"$>
+</div><!-- // END Home Page Left Column -->
+
+<div id="bgnews-home-right">            
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200" valign="top">
+    <object style="width:200px;height:360px" ><param name="wmode" value="opaque" /><param name="movie" value="http://static.issuu.com/webembed/viewers/style1/v1/IssuuViewer.swf?mode=embed&amp;viewMode=presentation&amp;layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Fcolor%2Flayout.xml&amp;backgroundColor=FFFFFF&amp;folderId=fa842daa-fe66-4972-8f8f-1103615af1f3&amp;docName=bgnews090527&amp;username=bgviews&amp;loadingInfoText=The%20BG%20News%20-%2005-27-2009&amp;et=1243835513778&amp;er=11" /><param name="allowfullscreen" value="true"/><param name="menu" value="false"/><embed wmode="opaque" src="http://static.issuu.com/webembed/viewers/style1/v1/IssuuViewer.swf" type="application/x-shockwave-flash" allowfullscreen="true" menu="false" style="width:200px;height:360px" flashvars="mode=embed&amp;viewMode=presentation&amp;layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Fcolor%2Flayout.xml&amp;backgroundColor=FFFFFF&amp;folderId=fa842daa-fe66-4972-8f8f-1103615af1f3&amp;docName=bgnews090527&amp;username=bgviews&amp;loadingInfoText=The%20BG%20News%20-%2005-27-2009&amp;et=1243835513778&amp;er=11" /></object>
+    </td>
+    <td width="220" valign="top">
+    
+    <$mt:Include module="Latest Screech"$>
+    <a href="http://bgnews.com/rant/"><img src="/images/add-your-2c.gif" width="175" height="40" border="0" style="padding-top:10px; padding-bottom:10px;"></a><br>
+	<span style="font-size: 10px;">Captured a great moment on campus? Submit your photos and they could appear in The BG News.</span><br>
+    <a href="http://bgnews.com/captured/"><img src="/images/caputured-on-campus.gif" width="175" height="40" border="0" style="padding-top:10px;"></a>
+    </td>
+  </tr>
+</table>
+	<$mt:Include module="Home Page Photos"$>
+	<$mt:Include module="Home Page Lists"$>
+	<$mt:Include module="Network Teaser"$>
+	<$mt:Include module="Content Navigation"$>
+</div><!-- // END Home Page Right Column -->
+
+
+</div><!-- // END Home Page -->
+<$mt:Include module="Footer MTCS 2-Col"$>
+

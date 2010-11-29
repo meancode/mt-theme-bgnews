@@ -1,0 +1,569 @@
+<mt:Var name="issue-index" value="issue-index">
+<$mt:Var name="page_layout" value="layout-wtt"$>
+<mt:SetVarBlock name="current_entrydate"><mt:Entries lastn="1"><$mt:EntryDate format="%Y%m"$></mt:Entries></mt:SetVarBlock>	
+<mt:SetVarBlock name="current_date"><$mt:Date format="%Y%m"$></mt:SetVarBlock>
+<mt:SetVarBlock name="this_year">2010</mt:SetVarBlock>
+<mt:SetVarBlock name="title"><$mt:BlogName encode_html="1"$> - <$mt:Var name="this_year"$> Daily Issue Index</mt:SetVarBlock>
+<mt:SetVarBlock name="html_head">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$mt:Link template="rsd"$>" />
+<link rel="stylesheet" href="http://bgviewsnetwork.com/mt/mt-static/themes/bgviews/css/bgnews_home.css" type="text/css" media="screen"/>
+<style type="text/css">
+<!--
+.archive .archive-content {
+margin-bottom:0px;
+}
+.asset-header, .asset-content, .asset-body, .comments-header, .comment-content, .comment-footer, .comments-open-header, .comments-open-content, #comments-open-footer, .comments-closed, #comment-form-external-auth, #comment-greeting, .comments-open-moderated, #comment-form-name, #share-email-to, #share-email-from, #share-email-message, #comment-form-email, #comment-form-url, #comment-form-remember-me, #comment-form-reply, #comments-open-text, .trackbacks-header, .trackbacks-info, .trackback-content, .trackback-footer, .archive-content, .search-form-header, .search-results-header {
+margin-bottom:0em;
+}
+.archive-category .widget .widget-content {
+padding:0px 0px;
+}
+.archive-category .widget-content {
+margin:0px 0;
+}
+-->
+</style>
+</mt:SetVarBlock>
+<$mt:Include module="Header MTCS 1" body_class="mt-main-index"$>
+<$mt:Include module="Header MTCS 2" body_class="mt-main-index"$>
+<$mt:Include module="Header MTCS 3" body_class="mt-main-index"$>
+<div id="bgnews-home-page">            
+<div class="page-asset asset">
+  <div class="asset-header">
+    <h1 id="page-title" class="asset-name"><$mt:Var name="this_year"$> Daily Issue Index</h1>
+  </div>
+  <div class="asset-content">
+    <div class="asset-body">
+	
+<mt:IfArchiveTypeEnabled archive_type="Daily">
+  <div class="archive-category archive">
+	
+<mt:If name="current_entrydate" lt="201001"><mt:Else>	
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201001"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/01/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201001">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201002"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201002"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/02/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201002">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201003"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201003"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/03/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201003">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201004"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201004"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/04/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201004">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201005"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201005"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/05/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201005">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201006"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201006"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/06/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201006">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201007"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201007"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/07/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201007">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201008"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201008"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/08/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201008">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201009"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201009"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/09/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201009">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201010"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201010"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/10/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201010">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+<mt:If name="current_entrydate" lt="201011"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none; padding-right:20px;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201011"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/11/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201011">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+
+<mt:If name="current_entrydate" lt="201012"><mt:Else>
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+      <mt:ArchiveListHeader>
+      <div class="archive-content" style="width:180px; float:left; clear: none;">
+        <div class="widget-calendar widget" style="height:220px;">
+          <h3 class="widget-header">
+            <mt:Calendar month="201012"><mt:If tag="CalendarDay" eq="1"><a href="http://bgnews.com/<$mt:Var name="this_year"$>/12/"><mt:CalendarDate format="%B %Y"></a></mt:If></mt:Calendar>
+          </h3>
+          <div class="widget-content">
+        </mt:ArchiveListHeader>
+            <table align="center" cellspacing="7" summary="Issue index">
+              <tr>
+                <th abbr="Sunday">S</th>
+                <th abbr="Monday">M</th>
+                <th abbr="Tuesday">T</th>
+                <th abbr="Wednesday">W</th>
+                <th abbr="Thursday">T</th>
+                <th abbr="Friday">F</th>
+                <th abbr="Saturday">S</th>
+              </tr>
+              <MTCalendar month="201012">
+                <MTCalendarWeekHeader>
+                  <tr>
+                </MTCalendarWeekHeader>
+                <td align="center"><MTCalendarIfEntries> <a href="<$mt:ArchiveLink type="Daily"$>" class="daily-highlight" style="display: block;">
+                      <$MTCalendarDay$>
+                      </a> </MTCalendarIfEntries>
+                    <MTCalendarIfNoEntries>
+                      <$MTCalendarDay$>
+                    </MTCalendarIfNoEntries>
+                    <MTCalendarIfBlank> </MTCalendarIfBlank></td>
+                  <MTCalendarWeekFooter>
+                </tr></MTCalendarWeekFooter>
+              </MTCalendar>
+            </table>
+        <mt:ArchiveListFooter>
+          </div>
+        </div>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</mt:If>
+
+
+  </div>  
+</mt:IfArchiveTypeEnabled>
+    </div>
+  </div>
+  <div class="asset-footer">
+<$mt:Include module="Content Navigation"$>
+</div>
+</div>
+</div><!-- // END Home Page -->
+<$mt:Include module="Footer MTCS 2-Col"$>
+

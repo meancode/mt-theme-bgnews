@@ -1,0 +1,807 @@
+id: bgnews-theme
+key: bgnews-theme
+name: BG News.com Theme
+version: 1.0
+author_name: Ken Edwards
+author_link: http://meancode.com/
+plugin_link: https://github.com/meancode/mt-theme-bgnews
+description: This theme exposes options to allow editors the ability to manage the bgnews.com website.
+
+#static_version: 1
+blog_preferences:
+    my_config:
+        label: "bgnews.com Site Config"
+        description: "Preferred settings for bgnews.com."
+        order: 100
+        preferences:
+            allow_comments_html: 1
+            allow_anon_comments: 1
+            allow_commenter_regist: 1
+            allow_comments_default: 1
+            allow_pings: 0
+            allow_pings_default: 0
+            allow_reg_comments: 1
+            allow_unreg_comments: 1
+            archive_type_preferred: entry
+            autodiscover_links: 0
+            autolink_urls: 1
+            basename_limit: 250
+            captcha_provider: 
+            cc_license: 
+            commenter_authenticators: MovableType,OpenID,LiveJournal,Google,Yahoo,WordPress,Twitter,Facebook,TypePad
+            convert_paras: 'Rich Text'
+            convert_paras_comments: 1
+            custom_dynamic_templates: none
+            days_on_index: 0
+            email_new_comments: 1
+            email_new_pings: 0
+            entries_on_index: 10
+            file_extension: php
+            follow_auth_links: 1
+            #image_default_align: right
+            #image_default_constrain: 1
+            #image_default_thumb: 1
+            #image_default_width: 150
+            #image_default_popup: 0
+            #image_default_wrap_text: 
+            #image_default_wunits: 
+            include_cache: 1
+            include_system: php
+            internal_autodiscovery: 0
+            is_dynamic: 0
+            junk_folder_expiry: 3
+            junk_score_threshold: 0
+            #language: 
+            manual_approve_commenters: 0
+            moderate_pings: 1
+            moderate_unreg_comments: 1
+            nofollow_urls: 0
+            nwc_smart_replace: 'ASCII equivalents'
+            #nwc_replace_field: 
+            #ping_blogs: 
+            #ping_google: 
+            #ping_others: http://rpc.pingomatic.com
+            #ping_technorati: 
+            #ping_weblogs: 
+            #remote_auth_token: 
+            require_comment_emails: 1
+            require_typekey_emails: 1
+            #sanitize_spec: 
+            #server_offset: 
+            sort_order_comments: ascend
+            sort_order_posts: descend
+            status_default: 2
+            #update_pings: 
+            use_comment_confirmation: 0
+            #welcome_msg: 
+            words_in_excerpt: 40
+template_sets:
+    info_site_theme:
+        base_path: 'templates'
+        label: 'bgnews.com Theme'
+        documentation: docs.html
+        preview: 'preview.jpg'
+        thumbnail: 'thumbnail.jpg'
+        blog_preferences: my_config
+        templates:
+          archive:
+            entry:
+              filename: archive/entry.mtml
+              label: Entry
+              mappings:
+                individual:
+                  archive_type: Individual
+                  file_template: %-c/%-b/%i
+                  preferred: 1
+            entry_for_iphone:
+              filename: archive/entry_for_iphone.mtml
+              label: 'Entry for iPhone'
+              mappings:
+                individual:
+                  archive_type: Individual
+                  file_template: m/%-c/%-b/%i
+                  preferred: 0
+            entry_for_print:
+              filename: archive/entry_for_print.mtml
+              label: 'Entry for Print'
+              mappings:
+                individual:
+                  archive_type: Individual
+                  file_template: print/%-c/%-b/%i
+                  preferred: 0
+            entry_listing:
+              filename: archive/entry_listing.mtml
+              label: 'Entry Listing (Monthly)'
+              mappings:
+                monthly:
+                  archive_type: Monthly
+                  file_template: %y/%m/%i
+                  preferred: 1
+            entry_listing_author:
+              filename: archive/entry_listing_author.mtml
+              label: 'Entry Listing (Author)'
+              mappings:
+                author:
+                  archive_type: Author
+                  file_template: author/%-a/%f
+                  preferred: 1
+            entry_listing_category:
+              filename: archive/entry_listing_category.mtml
+              label: 'Entry Listing (Category)'
+              mappings:
+                category:
+                  archive_type: Category
+                  file_template: %-c/%i
+                  preferred: 1
+            entry_listing_daily:
+              filename: archive/entry_listing_daily.mtml
+              label: 'Entry Listing (Daily)'
+              mappings:
+                daily:
+                  archive_type: Daily
+                  file_template: issue/%y/%m/%d/%f
+                  preferred: 1
+            entry_listing_feed:
+              filename: archive/entry_listing_feed.mtml
+              label: 'Entry Listing (Feed)'
+              mappings:
+                category:
+                  archive_type: Category
+                  file_template: %-c/atom.xml
+                  preferred: 0
+            entry_listing_list:
+              filename: archive/entry_listing_list.mtml
+              label: 'Entry Listing (List)'
+              mappings:
+                category:
+                  archive_type: Category
+                  file_template: %-c/list/%i
+                  preferred: 0
+            page:
+              filename: archive/page.mtml
+              label: Page
+              mappings:
+                page:
+                  archive_type: Page
+                  file_template: %-c/%-b/%i
+                  preferred: 1
+          index:
+            anythingslider_stylesheet:
+              filename: index/anythingslider_stylesheet.mtml
+              label: 'AnythingSlider Stylesheet'
+              outfile: anythingslider.css
+              rebuild_me: 1
+            archive_index:
+              filename: index/archive_index.mtml
+              label: Archive
+              outfile: archives/index.php
+              rebuild_me: 1
+            archive_test:
+              filename: index/archive_test.mtml
+              label: 'Archive Test'
+              outfile: archives/test.php
+              rebuild_me: 0
+            atom_feed_staff_blogs:
+              filename: index/atom_feed_staff_blogs.mtml
+              label: 'Atom Feed (Staff Blogs)'
+              outfile: staffblogs.xml
+              rebuild_me: 1
+            author_archives_index:
+              filename: index/author_archives_index.mtml
+              label: 'Author Archives Index'
+              outfile: archives/author.php
+              rebuild_me: 1
+            daily_issue_index_2010:
+              filename: index/daily_issue_index_2010.mtml
+              label: 'Daily Issue Index 2010'
+              outfile: issue/index.php
+              rebuild_me: 1
+            falcon_screech_email_form:
+              filename: index/falcon_screech_email_form.mtml
+              label: 'Falcon Screech Email Form'
+              outfile: rant/form.php
+              rebuild_me: 0
+            feed_recent:
+              filename: index/feed_recent.mtml
+              label: 'Atom Feed'
+              outfile: atom.xml
+              rebuild_me: 1
+            google_sitemap_news:
+              filename: index/google_sitemap_news.mtml
+              label: 'Google Sitemap (News)'
+              outfile: sitemap_news.xml
+              rebuild_me: 1
+            google_sitemap_web:
+              filename: index/google_sitemap_web.mtml
+              label: 'Google Sitemap (Web)'
+              outfile: sitemap.xml
+              rebuild_me: 1
+            htaccess:
+              filename: index/htaccess.mtml
+              label: .htaccess
+              outfile: .htaccess
+              rebuild_me: 0
+            htaccess_staff_blogs:
+              filename: index/htaccess_staff_blogs.mtml
+              label: '.htaccess Staff Blogs'
+              outfile: /home/bgnews/public_html/blogs/.htaccess
+              rebuild_me: 0
+            iphone_index:
+              filename: index/iphone_index.mtml
+              label: 'iPhone Index'
+              outfile: m/index.php
+              rebuild_me: 1
+            iphone_index_2:
+              filename: index/iphone_index_2.mtml
+              label: 'iPhone Index 2'
+              outfile: m/index2.php
+              rebuild_me: 1
+            iphone_index_3:
+              filename: index/iphone_index_3.mtml
+              label: 'iPhone Index 3'
+              outfile: m/index3.php
+              rebuild_me: 1
+            javascript:
+              filename: index/javascript.mtml
+              label: JavaScript
+              outfile: mt.js
+              rebuild_me: 1
+            letters_to_editor:
+              filename: index/letters_to_editor.mtml
+              label: 'Letters to Editor'
+              outfile: letters/index.php
+              rebuild_me: 1
+            main_index:
+              filename: index/main_index.mtml
+              label: 'Main Index'
+              outfile: index.php
+              rebuild_me: 1
+            main_index_test:
+              filename: index/main_index_test.mtml
+              label: 'Main Index TEST'
+              outfile: testing/index.php
+              rebuild_me: 0
+            mobile_css:
+              filename: index/mobile_css.mtml
+              label: 'Mobile CSS'
+              outfile: m/styles.css
+              rebuild_me: 1
+            motion_javascript:
+              filename: index/motion_javascript.mtml
+              label: 'Motion JavaScript'
+              outfile: motion.js
+              rebuild_me: 1
+            motion_mt_javascript:
+              filename: index/motion_mt_javascript.mtml
+              label: 'Motion MT JavaScript'
+              outfile: motion_mt.js
+              rebuild_me: 1
+            photo_upload_form:
+              filename: index/photo_upload_form.mtml
+              label: 'Photo Upload Form'
+              outfile: captured/index.php
+              rebuild_me: 1
+            poll_position:
+              filename: index/poll_position.mtml
+              label: 'Poll Position'
+              outfile: poll.php
+              rebuild_me: 1
+            robotstxt:
+              filename: index/robotstxt.mtml
+              label: robots.txt
+              outfile: robots.txt
+              rebuild_me: 0
+            robotstxt_staff_blogs:
+              filename: index/robotstxt_staff_blogs.mtml
+              label: 'robots.txt Staff Blogs'
+              outfile: /home/bgnews/public_html/blogs/robots.txt
+              rebuild_me: 0
+            rsd:
+              filename: index/rsd.mtml
+              label: RSD
+              outfile: rsd.xml
+              rebuild_me: 1
+            rss_20_feed:
+              filename: index/rss_20_feed.mtml
+              label: 'RSS 2.0 Feed'
+              outfile: rss.xml
+              rebuild_me: 1
+            staff_blogs_index:
+              filename: index/staff_blogs_index.mtml
+              label: 'Staff Blogs Index'
+              outfile: /home/bgnews/public_html/blogs/index.php
+              rebuild_me: 1
+            staff_index_web:
+              filename: index/staff_index_web.mtml
+              label: 'Staff Index: Web'
+              outfile: staff/web/index.php
+              rebuild_me: 0
+            styles:
+              filename: index/styles.mtml
+              label: 'Site Stylesheet'
+              outfile: styles.css
+              rebuild_me: 0
+            video_teaser_campus:
+              filename: index/video_teaser_campus.mtml
+              label: 'Video Teaser Campus'
+              outfile: video_teaser_campus.php
+              rebuild_me: 1
+            video_teaser_sports:
+              filename: index/video_teaser_sports.mtml
+              label: 'Video Teaser Sports'
+              outfile: video_teaser_sports.php
+              rebuild_me: 1
+            visitor_stats:
+              filename: index/visitor_stats.mtml
+              label: 'Visitor Stats'
+              outfile: stats.php
+              rebuild_me: 0
+          module:
+            anythingslider_home:
+              filename: module/anythingslider_home.mtml
+              label: 'AnythingSlider Home'
+            apple_touch_icon:
+              filename: module/apple_touch_icon.mtml
+              label: 'Apple Touch Icon'
+            content_navigation:
+              filename: module/content_navigation.mtml
+              label: 'Content Navigation'
+            entry_detail_bg_news:
+              filename: module/entry_detail_bg_news.mtml
+              label: 'Entry Detail BG News'
+            entry_detail_print:
+              filename: module/entry_detail_print.mtml
+              label: 'Entry Detail Print'
+            entry_metadata_bg_news:
+              filename: module/entry_metadata_bg_news.mtml
+              label: 'Entry Metadata BG News'
+            entry_metadata_lite:
+              filename: module/entry_metadata_lite.mtml
+              label: 'Entry Metadata Lite'
+            entry_summary_anythingslider:
+              filename: module/entry_summary_anythingslider.mtml
+              label: 'Entry Summary AnythingSlider'
+            entry_summary_big:
+              filename: module/entry_summary_big.mtml
+              label: 'Entry Summary Big'
+            entry_summary_big_test:
+              filename: module/entry_summary_big_test.mtml
+              label: 'Entry Summary Big TEST'
+            header_logo:
+              filename: module/header_logo.mtml
+              label: 'Header Logo'
+            home_breaking_news:
+              filename: module/home_breaking_news.mtml
+              label: 'Home Breaking News'
+            home_page_carousel:
+              filename: module/home_page_carousel.mtml
+              label: 'Home Page Carousel'
+            home_page_carousel_test:
+              filename: module/home_page_carousel_test.mtml
+              label: 'Home Page Carousel TEST'
+            home_page_lists:
+              filename: module/home_page_lists.mtml
+              label: 'Home Page Lists'
+            home_page_photos:
+              filename: module/home_page_photos.mtml
+              label: 'Home Page Photos'
+            include_sports_blog:
+              filename: module/include_sports_blog.mtml
+              label: 'Include Sports Blog'
+            issues_this_month:
+              filename: module/issues_this_month.mtml
+              label: 'Issues This Month'
+            latest_screech:
+              filename: module/latest_screech.mtml
+              label: 'Latest Screech'
+            meta_author:
+              filename: module/meta_author.mtml
+              label: 'META Author'
+            meta_description:
+              filename: module/meta_description.mtml
+              label: 'META Description'
+            meta_email:
+              filename: module/meta_email.mtml
+              label: 'META Email'
+            meta_keywords:
+              filename: module/meta_keywords.mtml
+              label: 'META Keywords'
+            mobile_contact:
+              filename: module/mobile_contact.mtml
+              label: 'Mobile Contact'
+            network_teaser:
+              filename: module/network_teaser.mtml
+              label: 'Network Teaser'
+            sections_navigation:
+              filename: module/sections_navigation.mtml
+              label: 'Sections Navigation'
+            sidebar:
+              filename: module/sidebar.mtml
+              label: Sidebar
+            site_type_logo:
+              filename: module/site_type_logo.mtml
+              label: 'Site Type Logo'
+            social_bar_home:
+              filename: module/social_bar_home.mtml
+              label: 'Social Bar Home'
+            spread_the_word:
+              filename: module/spread_the_word.mtml
+              label: 'Spread The Word'
+            video_teaser:
+              filename: module/video_teaser.mtml
+              label: 'Video Teaser'
+          system:
+            comment_preview:
+              filename: system/comment_preview.mtml
+              label: 'Comment Preview'
+            comment_response:
+              filename: system/comment_response.mtml
+              label: 'Comment Response'
+            dynamic_error:
+              filename: system/dynamic_error.mtml
+              label: 'Dynamic Error'
+            popup_image:
+              filename: system/popup_image.mtml
+              label: 'Popup Image'
+            search_results:
+              filename: system/search_results.mtml
+              label: 'Search Results'
+          widget:
+            bg_bucks_teaser:
+              filename: widget/bg_bucks_teaser.mtml
+              label: 'BG Bucks Teaser'
+            bg_news_issuu:
+              filename: widget/bg_news_issuu.mtml
+              label: 'BG News Issuu'
+            bg_news_subscriptions:
+              filename: widget/bg_news_subscriptions.mtml
+              label: 'BG News Subscriptions'
+            bg_news_twitter_list:
+              filename: widget/bg_news_twitter_list.mtml
+              label: 'BG News Twitter List'
+            bg_views_facebook_page:
+              filename: widget/bg_views_facebook_page.mtml
+              label: 'BG Views Facebook Page'
+            bg_views_powered:
+              filename: widget/bg_views_powered.mtml
+              label: 'BG Views Powered'
+            campus_cash:
+              filename: widget/campus_cash.mtml
+              label: 'Campus Cash'
+            falcon_screech:
+              filename: widget/falcon_screech.mtml
+              label: 'Falcon Screech'
+            housing_guide_teaser:
+              filename: widget/housing_guide_teaser.mtml
+              label: 'Housing Guide Teaser'
+            issuu_bg_news_widget:
+              filename: widget/issuu_bg_news_widget.mtml
+              label: 'Issuu BG News Widget'
+            monster_jobs:
+              filename: widget/monster_jobs.mtml
+              label: 'Monster Jobs'
+            most_comments:
+              filename: widget/most_comments.mtml
+              label: 'Most Comments'
+            most_popular_set:
+              filename: widget/most_popular_set.mtml
+              label: 'Most Popular Set'
+            most_read_entries:
+              filename: widget/most_read_entries.mtml
+              label: 'Most Read Articles'
+            popular_accordion:
+              filename: widget/popular_accordion.mtml
+              label: 'Popular Accordion'
+            tag_cloud:
+              filename: widget/tag_cloud.mtml
+              label: 'Tag Cloud'
+            visitor_stats_counter:
+              filename: widget/visitor_stats_counter.mtml
+              label: 'Visitor Stats Counter'
+          widgetset:
+            accordion_test:
+              filename: widgetset/accordion_test.mtml
+              label: 'Accordion Test'
+            activity_widgets:
+              filename: widgetset/activity_widgets.mtml
+              label: 'Activity Widgets'
+            archive_widgets:
+              filename: widgetset/archive_widgets.mtml
+              label: 'Archive Widgets'
+        options:
+            fieldsets:
+                fs_slider_settings:
+                    label: 'AnythingSlider Settings'
+                    hint: 'Hint goes here.'
+                    order: 2
+                fs_site_settings:
+                    label: 'Site Wide Settings'
+                    hint: 'Hint goes here.'
+                    order: 1
+                info:
+                    label: 'Site Info'
+                    hint: 'Hint goes here.'
+                    order: 3
+                design:
+                    label: 'Design Docs'
+                    hint: 'Hint goes here.'
+                    order: 4
+                contact:
+                    label: 'Contact Info'
+                    hint: 'Hint goes here.'
+                    order: 5
+                sheriff:
+                    label: 'Sheriff Dept.'
+                    hint: 'Hint goes here.'
+                    order: 6
+                fire:
+                    label: 'Fire Dept.'
+                    hint: 'Hint goes here.'
+                    order: 7
+                facts:
+                    label: 'Facts & Figures'
+                    hint: 'Hint goes here.'
+                    order: 8
+                gallery:
+                    label: 'Site Photos'
+                    hint: 'Hint goes here.'
+                    order: 9
+            anything_easing:
+                type: select
+                label: "Easing"
+                hint: "Anything other than linear or swing requires the easing plugin. This value changes the way slides animate when they transition from one to another."
+                tag: 'AnythingSliderEasing'
+                values: linear,swing,easeInOutExpo
+                default: easeInOutExpo
+                order: 1
+                fieldset: fs_slider_settings
+            anything_autoplay:
+                type: select
+                label: "Auto Play"
+                hint: "This turns off the entire FUNCTIONALITY, not just if it starts running or not. This includes rendering the Start/Stop button, too."
+                tag: 'AnythingSliderAutoPlay'
+                values: true,false
+                default: true
+                order: 2
+                fieldset: fs_slider_settings
+            anything_startstopped:
+                type: select
+                label: "Start Stopped?"
+                hint: "If autoPlay is on, this can force it to start stopped."
+                tag: 'AnythingSliderStartStopped'
+                values: true,false
+                default: false
+                order: 3
+                fieldset: fs_slider_settings
+            anything_delay:
+                type: text
+                label: "Delay"
+                hint: "How long between slide transitions in AutoPlay mode."
+                tag: 'AnythingSliderDelay'
+                default: 3000
+                order: 4
+                fieldset: fs_slider_settings
+            anything_animation:
+                type: text
+                label: "Animation Time"
+                hint: "How long the slide transition takes."
+                tag: 'AnythingSliderAnimation'
+                default: 600
+                order: 5
+                fieldset: fs_slider_settings
+            anything_hashtags:
+                type: select
+                label: "Hashtags"
+                hint: "Should links change the hashtag in the URL?"
+                tag: 'AnythingSliderHashTags'
+                values: true,false
+                default: true
+                order: 6
+                fieldset: fs_slider_settings
+            anything_nav:
+                type: select
+                label: "Show Navigation"
+                hint: "If true, builds and list of anchor links to link to each slide. Setting to false also hides them from view."
+                tag: 'AnythingSliderNav'
+                values: true,false
+                default: true
+                order: 7
+                fieldset: fs_slider_settings
+            anything_pausehover:
+                type: select
+                label: "Pause on Hover?"
+                hint: "If true, and autoPlay is enabled, the carousel will pause on mouse hover."
+                tag: 'AnythingSliderPauseHover'
+                values: true,false
+                default: true
+                order: 8
+                fieldset: fs_slider_settings
+            anything_starttext:
+                type: text
+                label: "Start Text"
+                hint: "Start text that displays on the start/stop toggle button."
+                tag: 'AnythingSliderStartText'
+                default: Start
+                order: 10
+                fieldset: fs_slider_settings
+            anything_stoptext:
+                type: text
+                label: "Stop Text"
+                hint: "Stop text that displays on the start/stop toggle button."
+                tag: 'AnythingSliderStopText'
+                default: Stop
+                order: 11
+                fieldset: fs_slider_settings
+            anything_navformatter:
+                type: checkbox
+                label: "Navigation Formatting?"
+                hint: "If checked, and Show Navigation is true, navigation tabs will display Panel 1, Panel 2, etc..."
+                tag: 'IfAnythingSliderNavFormatter?'
+                order: 12
+                fieldset: fs_slider_settings
+            anything_navformattext:
+                type: text
+                label: "Navigation Text"
+                hint: "Only valid if the Navigation Formatting? checkbox is checked. Examples: Panel, Slide, Frame, etc."
+                tag: 'AnythingSliderNavFormatText'
+                default: Panel
+                order: 13
+                fieldset: fs_slider_settings
+            anything_forwardtext:
+                type: text
+                label: "Forward Text"
+                hint: "Link text used to move the slider forward."
+                tag: 'AnythingSliderForwardText'
+                default: '&raquo;'
+                order: 14
+                fieldset: fs_slider_settings
+            anything_backtext:
+                type: text
+                label: "Back Text"
+                hint: "Link text used to move the slider back."
+                tag: 'AnythingSliderBackText'
+                default: '&laquo;'
+                order: 15
+                fieldset: fs_slider_settings
+            anything_height:
+                type: text
+                label: "Height"
+                hint: "Override the default CSS height; leave blank for null."
+                tag: 'AnythingSliderHeight'
+                order: 16
+                fieldset: fs_slider_settings
+            anything_width:
+                type: text
+                label: "Width"
+                hint: "Override the default CSS width; leave blank for null."
+                tag: 'AnythingSliderWidth'
+                order: 17
+                fieldset: fs_slider_settings
+            anything_buildarrows:
+                type: select
+                label: "Build Arrows?"
+                hint: "If true, builds the forwards and backwards buttons."
+                tag: 'AnythingSliderBuildArrows'
+                values: true,false
+                default: true
+                order: 18
+                fieldset: fs_slider_settings
+            anything_resizepanel:
+                type: select
+                label: "Resize Panel?"
+                hint: "If true, solitary images in the panel will expand to fit the panel."
+                tag: 'AnythingSliderResizePanel'
+                values: true,false
+                default: true
+                order: 19
+                fieldset: fs_slider_settings
+            anything_startstoptoggle:
+                type: checkbox
+                label: "Hide Start/Stop Toggle?"
+                hint: "If checked, the visibility of the Start/Stop button will be hidden with the AnythingSlider CSS."
+                tag: 'IfAnythingSliderStartStop?'
+                order: 20
+                fieldset: fs_slider_settings
+            anything_arrowsimg:
+                type: file
+                destination: theme/%{10}e
+                label: "Arrows"
+                hint: "The arrows image is a single PNG with normal and hover states for the left and right arrows. Leave blank for the default image."
+                tag: 'AnythingSliderArrowsImg'
+                order: 1
+                scope: blog
+                fieldset: fs_slider_settings
+            anything_thumbimg:
+                type: file
+                destination: theme/%{10}e
+                label: "Navigation Background"
+                hint: "The background image used for the start/stop toggle and navigation buttons. Leave blank for the default image."
+                tag: 'AnythingSliderThumbImg'
+                order: 1
+                scope: blog
+                fieldset: fs_slider_settings
+            anything_breakingimg:
+                type: file
+                destination: theme/%{10}e
+                label: "Breaking News"
+                hint: "The image is placed on top of the carousel image when using the Article Slider. It should be a transparent PNG file. Leave blank for the default image."
+                tag: 'AnythingSliderBreakingImg'
+                order: 3
+                scope: blog
+                fieldset: fs_slider_settings
+            anything_updatedimg:
+                type: file
+                destination: theme/%{10}e
+                label: "Updated"
+                hint: "The image is placed on top of the carousel image when using the Article Slider. It should be a transparent PNG file. Leave blank for the default image."
+                tag: 'AnythingSliderUpdatedImg'
+                order: 4
+                scope: blog
+                fieldset: fs_slider_settings
+            anything_featuredimg:
+                type: file
+                destination: theme/%{10}e
+                label: "Featured"
+                hint: "The image is placed on top of the carousel image when using the Article Slider. It should be a transparent PNG file. Leave blank for the default image."
+                tag: 'AnythingSliderFeaturedImg'
+                order: 5
+                scope: blog
+                fieldset: fs_slider_settings
+            appletouch_url:
+                type: file
+                label: "Apple Touch Icon"
+                hint: "This is the URL of the Apple Touch Icon for this blog."
+                tag: 'BGVAppleTouchIcon'
+                destination: theme/%{10}e
+                scope: blog
+                fieldset: fs_site_settings
+            headerlogo_link:
+                type: text
+                label: "Header Logo Link"
+                hint: "This is the link URL for the header logo."
+                default: 'http://bgviews.com'
+                tag: 'BGVHeaderLogoLink'
+                fieldset: fs_site_settings
+            author_meta:
+                type: text
+                label: "Blog Author"
+                hint: "This is the META Author."
+                tag: 'BGVMetaAuthor'
+                fieldset: fs_site_settings
+            email_meta:
+                type: text
+                label: "Blog Author Email"
+                hint: "This is the META Author Email."
+                tag: 'BGVMetaEmail'
+                fieldset: fs_site_settings
+            description_meta:
+                type: textarea
+                label: "Blog Description"
+                hint: "This is the META Description. It should be one or two brief sentences about the site"
+                tag: 'BGVMetaDescription'
+                fieldset: fs_site_settings
+            keywords_meta:
+                type: textarea
+                label: "Blog Keywords"
+                hint: "This is the META Keywords. It should a comma separated list."
+                tag: 'BGVMetaKeywords'
+                fieldset: fs_site_settings
+            mobile_contact:
+                type: text
+                label: "Mobile Contact"
+                hint: "Used on the Mobile templates, must be like this: webmaster@bgviews.com?subject=Blog Feedback"
+                tag: 'BGVMobileContact'
+                fieldset: fs_site_settings
+            site_type:
+                type: select
+                values: Network Hub, Community Blog, Community Forum, Blog, Photo Blog, Directory, Events, News, Video
+                label: "Site Type"
+                hint: "Select the Site Type from the drop down menu."
+                tag: 'BGVSiteType'
+                fieldset: fs_site_settings
+
+skip_static:
+    - index.html
+    - readme.txt
+    - .psd
+    - .zip

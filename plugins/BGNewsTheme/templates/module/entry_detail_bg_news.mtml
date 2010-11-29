@@ -1,0 +1,55 @@
+<div id="entry-<$mt:EntryID$>" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><$mt:EntryTitle$></h2>
+        <mt:If tag="entrydatabgn_subhead"><h3><mt:entrydatabgn_subhead></h3></mt:If>
+        <$mt:Include module="Entry Metadata BG News"$>
+    </div>
+    <div class="asset-content entry-content">
+
+<mt:If tag="EntryBody">
+        <div class="asset-body">
+<mt:If tag="EntryMore" convert_breaks="0">
+<div id="alpha-right">
+        <div id="more" class="asset-more">
+
+<mt:SelectedEntries basename="bgn_related_entrie">
+  <mt:If name="__first__">
+<div id="bgvn-related-entries">
+  <h3>Related Articles</h3>
+    <ul>
+  </mt:If>
+        <li><a href="<mt:EntryPermalink>"><mt:EntryTitle></a></li>
+  <mt:If name="__last__">
+    </ul>
+</div>
+  </mt:If>
+</mt:SelectedEntries>
+            <$mt:EntryMore$>
+	</div>
+</div>
+</mt:If>
+            <$mt:EntryBody blogshow="html"$>
+
+<mt:If tag="entrydatabgnphotogallery">
+<div class="widget-pages widget">
+  <h3 class="widget-header"><a href="<mt:entrydatabgnphotogallery>" style="color:#FFFFFF;">Photo Gallery</a></h3>
+  <div class="widget-content">
+    <?php @include("<mt:entrydatabgnphotogallery>include.php"); ?>
+    <p style="float:right;"><a href="<mt:entrydatabgnphotogallery>">View more photos &raquo;</a></p>
+  </div>
+</div>
+</mt:If>
+
+        </div>
+</mt:If>
+
+</div>
+    <div class="asset-footer">
+
+        <$mt:Include module="Tags Blogs"$>
+        <$mt:Include module="Facebook Like"$>
+        <$mt:Include module="Spread The Word"$>
+
+</div>
+</div>
+

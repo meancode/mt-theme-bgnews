@@ -1,0 +1,61 @@
+<$mt:Var name="page_layout" value="layout-wtt"$>
+<mt:SetVarBlock name="page_title">BG News</mt:SetVarBlock>
+<mt:SetVarBlock name="title">
+  <$mt:Var name="page_title"$>
+  Web Staff</mt:SetVarBlock>
+<mt:SetVarBlock name="html_head"> </mt:SetVarBlock>
+<$mt:Include module="Header MTCS 1"$>
+<$mt:Include module="Header MTCS 2"$>
+<$mt:Include module="Header MTCS 3"$>
+<style type="text/css">
+<!--
+.layout-twt #alpha {
+    left: 0px;
+    width: 645px;
+}
+-->
+</style>
+<div class="entry-asset asset hentry">
+  <div class="asset-header">
+    <h2 class="asset-name entry-title">BG News Web Staff</h2>
+  </div>
+  <div class="asset-content entry-content">
+    <div class="asset-body">
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+
+<mt:IfAuthor role="bgnews_current_web">
+
+</mt:IfAuthor>
+
+<mt:Authors need_entry="0" role="bgnews_current_web">
+        <tr>
+          <td width="90" valign="top"><$mt:Include module="Userpic" userpic_type="profile" userpic_size="90"$></td>
+          <td valign="top"><$mt:AuthorDisplayName$><br>
+</td>
+        </tr>
+</mt:Authors>
+      </table>
+
+<mt:IfArchiveTypeEnabled archive_type="Author">
+  <div class="archive-author archive">
+    <mt:ArchiveList archive_type="Author" role="bgnews_current_web">
+      <mt:ArchiveListHeader>
+      <h2 class="archive-header">Author Archives</h2>
+      <div class="archive-content archive-content-author">
+        <ul>
+          </mt:ArchiveListHeader>
+          <li><a href="<$mt:ArchiveLink$>">
+            <$mt:ArchiveTitle$>
+            </a></li>
+          <mt:ArchiveListFooter>
+        </ul>
+      </div>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+  </div>
+</mt:IfArchiveTypeEnabled>
+
+    </div>
+  </div>
+</div>
+<$mt:Include module="Footer MTCS 2-Col"$>

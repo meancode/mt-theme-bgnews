@@ -1,0 +1,590 @@
+$(document).ready(function () {
+
+// Utility Functions
+    $('body').removeClass('noscript');
+    $('textarea').addClass('ta');
+    $(':text').addClass('ti');
+    $(':file').addClass('fi');
+    // $(':password').addClass('ti').addClass('pw');
+    // $(':checkbox').addClass('cb');
+    // $(':radio').addClass('fi');
+
+    // hide Messaging Motion on click
+    $('.close-me').click(function() {
+        $(this).parent().hide();
+        return false;
+    });
+
+    // Object Converter
+    function oc(a) {var o={};for(var i=0;i<a.length;i++){o[a[i]]='';};return o;}
+
+    // Set Field Defaults
+    formFieldFocus();
+
+    // Sign-in auth tab switcher - auth_types is defined in the login page.
+    $('#auth-options li').click(function(){
+        authID = $(this).attr('id').replace("signin_option_", "");
+        authOption = $("#signin_option_" + authID);
+        if (authOption) {
+            for (var i = 0; i < auth_types.length; i++) {
+                var auth_type = auth_types[i];
+                if (auth_type == authID) {
+                    $('#signin_with_' + auth_type).show();
+                    $('#signin_option_' + auth_type).addClass('selected');
+                } else {
+                    $('#signin_with_' + auth_type).hide();
+                    $('#signin_option_' + auth_type).removeClass('selected');
+                }
+            }
+        };
+    })
+
+    // Condition to only apply rules when #compose is present
+    if ($('#compose').size()) {
+
+        function fileExtensionCheck(filename, types) {
+            var ext = filename.match(/[^\.]+$/);
+            if (!ext) return false;
+            ext = ext.toString();
+            var hash = {};
+            for (var i = 0; i < types.length; i++)
+                hash[types[i]] = true;
+            return hash[ext.toLowerCase()];
+        }
+
+    // Entry Field Manager
+        // Field types
+        var fieldTypes = ['title','body','url',"photo",'audio','embed','tags'];
+        // Entry Editor
+        var entryTypes = {
+            "entry-text": ['title','body','tags'],
+            "entry-photo": ['title','body','tags','photo'],
+            "entry-link": ['title','body','tags','url'],
+            "entry-embed": ['title','body','tags','embed'],
+            "entry-audio": ['title','body','tags','audio']
+        };
+        var entryClasses = {
+            "entry-link":  "link",
+            "entry-photo": "photo",
+            "entry-audio": "audio",
+            "entry-embed": "embed"
+        };
+        function updateEntryFields(entryType, speed) {
+            if (!entryType.length) return;
+            var speed = (speed) ? speed : '';
+            $(entryType).addClass('active').siblings().removeClass('active');
+            var parentID = $(entryType).attr("id");
+
+            var entryClass = entryClasses[parentID] || 'entry';
+            $('#compose-class').val(entryClass);
+
+            for (var i in fieldTypes) {
+                var fieldName = "#field-" + fieldTypes[i];
+                if (fieldTypes[i] in oc(entryTypes[parentID])) {
+                    $(fieldName).fadeIn(speed);
+                    $(':input', fieldName).removeAttr('disabled');
+                } else {
+                    $(fieldName).hide();
+                    $(':input', fieldName).attr('disabled','disabled');
+                }
+            }
+        }
+        // Enable default entry fields
+        updateEntryFields($('#entry-text'));
+        // Change entry fields
+        $('#entry-types li a').click(function() {
+            updateEntryFields($(this).parent(), 250);
+            return false;
+        })
+        $('.more-options').click(function() {
+            $('#entry-fields-optional').fadeIn(450);
+            $(this).hide();
+        });
+
+    // Compose Submission Handler
+        // Create container for new entry
+        $('.actions').before('<ul id="response-handler"></ul>');
+        if ($('.actions ul').size() == 0)
+            $('.actions').append('<ul></ul>');
+
+        // Create containers for status Messaging Motion
+        $('#compose').append('<div id="spinner"></div><div id="spinner-status"></div>');
+
+        // Entry Submission
+        $('#homepage-compose').submit(function(){
+            var f = $("#homepage-compose").get(0);
+
+            var post_type = f.customfield_post_type.value;
+
+            // clear any default labels
+            $("#homepage-compose .default-value").each(function() {
+                $(this).val('');
+            });
+
+            // form validation; check for required fields and valid file
+            // extensions...
+            if (post_type == 'audio') {
+                var file_name = f.file_customfield_audio.value;
+                if (!file_name) {
+                    alert(mt.blog.phrase.fileRequired);
+                    return false;
+                } else if (!fileExtensionCheck(file_name, ['mp3'])) {
+                    alert(mt.blog.phrase.invalidFileType);
+                    return false;
+                }
+            } else if (post_type == 'photo') {
+                var file_name = f.file_customfield_photo.value;
+                if (!file_name) {
+                    alert(mt.blog.phrase.fileRequired);
+                    return false;
+                } else if (!fileExtensionCheck(file_name, ['gif', 'png', 'jpg', 'jpeg'])) {
+                    alert(mt.blog.phrase.invalidFileType);
+                    return false;
+                }
+            }
+
+            // file-based posts do not use ajax
+            if (post_type == 'audio') {
+                f.type_customfield_audio.value = 'audio';
+                f.ajax.value = '';
+                return true;
+            } else if (post_type == 'photo') {
+                f.type_customfield_photo.value = 'image';
+                f.ajax.value = '';
+                return true;
+            }
+
+            // flag this as an ajax request
+            f.ajax.value = '1';
+            $(this).ajaxSubmit({
+                target: '#response-handler',
+                beforeSubmit: beforeSubmit,
+                // ajax request is always encoded in utf-8 no matter 
+                // what charset the actual page is encoded, isn't it?
+                // file-based posts do not use ajax so the type should be ok.
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                success: displayEntry
+            });
+            return false;
+        });
+
+        function beforeSubmit(){
+            $('#quickpost-error').fadeOut().remove();
+            $('#spinner, #spinner-status').fadeIn('fast').css('height',$('#compose').height());
+        }
+
+        // response function
+        function displayEntry(){
+            if ($('#response-handler #quickpost-error').size() == 0)
+                $('#homepage-compose').clearForm();
+            // hide new entry, move to main listing.
+            $('#response-handler > li').hide().insertBefore('.actions ul:first li');
+            // slide to show.
+            $('.actions li:first').slideDown();
+            $('#spinner, #spinner-status').fadeOut();
+            formFieldFocus(); // FIXME: is this necessary?
+            // Initiate Entry Hover behavior
+            initEntryHover();
+        }
+    };
+
+
+// Userpic Flyouts
+    var flyOut;
+    // Flyout Hover/Unhover
+    $(".userpic").hover(function () {
+        // Hide all with class user-info
+        $('.user-info').hide();
+        // Show flyout after timeout
+        var userInfo = $(this).children('.user-info');
+        flyOut = $.timeout(function() { $(userInfo).fadeIn(200); }, 500);
+    },function () {
+        // Clear flyout timeout
+        $.clear(flyOut);
+        // Hide flyout
+        $(this).children('.user-info').fadeOut(200);
+    });
+    // Hide flyouts if click event in flyout
+    $(".userpic *").click(function () {
+        $.clear(flyOut);
+        $('.user-info').fadeOut(250);
+    })
+
+// Commenting
+    var commentDefaultVal = $('#comment-preview-comment .comment-content div').text();
+    var authorDefaultVal = $("#comment-author").attr('title');
+    var authorVal = $("#comment-author").val();
+    var emailVal = $("#comment-email").val();
+    var urlVal = $("#comment-url").val();
+    if (mtGetUser()) {
+        authorVal = mtGetUser().name;
+        emailVal = mtGetUser().email;
+        urlVal = mtGetUser().url;
+    }
+
+    // set default value for Author
+    $('#comment-preview-comment .author a').text(authorDefaultVal);
+
+    // hide: comment preview, comment preview button, comment tip
+    $('#comment-preview, #comment-preview-comment, #comments-open-text .tip').hide();
+    // hide: all comment form labels except the last
+    $('#comments-open-data label:not(:last)').hide();
+    // hide: reply text
+    $('.reply-comment-link').hide();
+    // disable all links in comment preview
+    $('#comment-preview-comment a').click(function(){ return false }); // disable links
+    // show preview upon focusing on textarea of input
+    $('#comments-form textarea, #comments-form input').focus(function(){
+        showPreview();
+    });
+    // update preview comment text
+    $('#comment-text').keyup(function() {
+        updatePreview($(this), $('#comment-preview-comment .comment-content-inner'), commentDefaultVal);
+    });
+    // update preview comment author
+    $('#comment-author').keyup(function() {
+        updatePreview($(this), $('#comment-preview-comment .author a'), authorDefaultVal);
+    });
+
+    // If comments accepted, add reply links
+    if (mt.blog.comments.accepted)
+        $('#comments-list .comment').each(function(){
+            parentID = $(this).attr('id').replace("comment-", "");
+            $('.byline', this).append(' | <a href="#comment-' + parentID + '" title="Reply">Reply</a>');
+        });
+
+    // Reply link click function
+    $('[@title="Reply"]').click(function(){
+        // if registration required (ie. no anonymous comments)
+        if (mt.blog.registration.required){
+            var u = mtGetUser();
+            var loggedin = u && u.is_authenticated;
+            if (!loggedin)
+                mtSignInOnClick('comment-greeting');
+        }
+
+        // add comment parent author to comment preview
+        replyAuthor = $(this).parent().find('.author').html();
+        $('#comment-preview-comment .reply-comment-link a span').html(replyAuthor);
+
+        // update preview comment author
+        $('#comment-author').keyup(function() {
+            updatePreview($(this), $('#comment-preview-comment .author a'), authorDefaultVal);
+        });
+
+        // show comment preview reply text
+        $('#comment-preview-comment .reply-comment-link').show();
+
+        // get id from reply link
+        parent_id = this.hash.replace("#comment-", "");
+
+        // show reply Form Field Motion, set focus to comment form
+        mtReplyCommentOnClick(parent_id, replyAuthor);
+
+        return false;
+    });
+
+    // toggle reply text when reply checkbox is checked
+    $('#comment-reply').click(function(){ $('.reply-comment-link').toggle() });
+
+    // Comment Submit
+    $("#comment-submit").click(function(){
+        // hide comment preview
+        $('#comment-preview-comment').fadeOut(1000);
+        // Set Commenter
+        // setCommenter();
+        // disable comment and submit button
+        $("#comment-submit, #comment-text").attr("disabled","disabled");
+        // Set armor
+        if ($('[name="armor"]')) {
+           $('[name="armor"]').val(mt.blog.comments.armor);
+        }
+
+        // Bake Cookies
+        // mtCommentOnSubmit($("#comments-form"));
+
+        $("#comments-form .default-value").each(function() {
+            $(this).val('');
+        });
+
+        // Get form data and post
+        var staticVal = $('[name="static"]').val();
+        var entryIdVal = $('[name="entry_id"]').val();
+        var langVal = $('[name="lang"]').val();
+        var parentIdVal = $('[name="comment_reply"]').val();
+        var armorVal = $('[name="armor"]').val();
+        var previewVal = $('[name="prev"]').val();
+        var sidVal = $('[name="sid"]').val();
+        var capthchaVal;
+        var tokenVal;
+        if($("#captcha_code")) {
+            capthchaVal = $('#captcha_code').val();
+            tokenVal = $('input[name="token"]').val();
+        }
+        var replyVal = $("#comment-reply").val();
+
+        var textVal = $("#comment-text").val();
+        var authorVal = $("#comment-author").val();
+        var emailVal = $("#comment-email").val();
+        var urlVal = $("#comment-url").val();
+        if (mtGetUser()) {
+            authorVal = mtGetUser().name;
+            emailVal = mtGetUser().email;
+            if (emailVal == undefined) emailVal = '';
+            urlVal = mtGetUser().url;
+            if (urlVal == undefined) urlVal = '';
+        }
+
+        var postData = { static: staticVal, entry_id: entryIdVal, parent_id: parentIdVal, armor: armorVal, comment_reply: replyVal, author: authorVal, email: emailVal, url: urlVal, text: textVal, captcha_code: capthchaVal, token: tokenVal};
+        $.ajax({
+            type: "POST",
+            url: mt.blog.comments.script,
+            data: postData,
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            success: function(data){
+                $("#comments-list").html(data);
+                $("#comment-submit, #comment-text").removeAttr("disabled");
+                if ($('#comments-list #comment-error').size() > 0) {
+                    $("#comment-preview-comment").fadeIn(1000);
+                } else if ($('#comments-list #comment-exclamation').size() > 0) {
+                    $("#comment-text").val('');
+                    $("#comment-preview-comment").fadeIn(1000);
+                    mtFireEvent('commentposted', postData);
+                } else {
+                    $('#comment-preview-comment .comment-content-inner').html(commentDefaultVal);
+                    $("#comment-text").val('');
+                    mtFireEvent('commentposted', postData);
+                };
+            }
+        });
+        return false;
+    });
+
+
+// Gallery Widget
+    $("#gall-prev").click(function(){
+        var gall_position = $("#photo-gallery").position();
+        if (gall_position.left < 0) {
+            if ((currentItem - 1) >= 1) {
+                $("#photo-gallery").animate({"left": "+=120px"}, "slow", "swing", function() {
+                    var gall_position_new = $("#photo-gallery").position();
+                    if (gall_position_new.left == 0) {
+                        $("#gall-prev").addClass("disabled");
+                    }
+                });
+                currentItem--;
+            };
+            $("#gall-next").removeClass("disabled");
+        }
+    });
+    $("#gall-next").click(function(){
+        if (lastItem >= (currentItem + 1)) {
+            currentItem++;
+            $("#photo-gallery").animate({"left": "-=120px"}, "slow");
+            $("#gall-prev").removeClass("disabled");
+        }
+        if ((currentItem) == lastItem) {
+            $("#gall-next").addClass("disabled");
+        }
+    });
+
+
+// Change/Remove Userpic
+    // define userpic
+    var changeUserpic = $('#userpic-field .field-content #change-userpic');
+    var removeUserpic = $('#userpic-field .field-content #remove-userpic');
+    // hide input change link present
+    $(changeUserpic).siblings("input").hide();
+    // onclick: hide link, img. show input
+    if (changeUserpic.size()) {
+        $(changeUserpic).click(function() {
+            var speed = 500;
+            $(this).hide(speed).siblings("img").hide(speed).siblings("input").show(speed);
+            removeUserpic.hide(speed);
+            return false;
+        })
+    };
+    if (removeUserpic.size()) {
+        $(removeUserpic).click(function() {
+            var id = $('[name="id"]').val();
+            var token = $('[name="magic_token"]').val();
+            var postData = { __mode: 'remove_userpic', user_id: id, magic_token: token  };
+            $.post(mt.blog.community.script, postData,
+                function(data){
+                    var speed = 500;
+                    $(removeUserpic).hide(speed).siblings("img").hide(speed).siblings("input").show(speed);
+                    changeUserpic.hide(speed);
+                }
+            );
+            return false;
+        })
+    };
+
+    // Initiate Entry Hover behavior
+    initEntryHover();
+
+    // Initiate page load functions
+    composeMagic();
+    personalizeEditor();
+    personalizeCommentForm();
+
+}); // End Ready Function
+
+// Hover on Entry or actions
+function initEntryHover(){
+    $(".asset, .actions > ul > li").hover(function(){
+            $(this).addClass('hover');
+        },function(){
+            $(this).removeClass('hover');
+        }
+    );
+}
+
+// Commenting Functions
+
+var commentDefaultVal, authorDefaultVal, authorVal, emailVal, urlVal;
+function updatePreviewTime(){
+    $('#comment-preview-comment .byline a .published').html( $.PHPDate("M d, Y g:i A", new Date())); // set date
+    // $('#comment-preview-comment .byline abbr').attr('title',$.PHPDate("c", new Date())); // set iso 8601 date (optional)
+}
+function showPreview(){
+    var u = mtGetUser();
+    var loggedin = u && u.is_authenticated;
+    if (loggedin) {
+        var fooname = mtGetUser().name;
+        $('#comment-preview-comment .byline .author a').html(fooname); // set comment author value
+    } else {
+        $('#comment-preview-comment .byline .author a').html(authorVal); // set comment author value
+    }
+    $("#comment-preview-comment, #comments-open-text .tip").fadeIn(1000); // hide comment preview
+    updatePreviewTime();
+}
+function updatePreview(id, target, defaultVal){
+    v = $(id).val();
+    v = (v.length? v : defaultVal)
+    v = v.replace(/\n/g, "<br />").replace(/\n\n+/g, '<br /><br />').replace(/(<\/?)script/g,"$1noscript");
+    $(target).html(v);
+    updatePreviewTime();
+}
+
+
+// Utility Functions
+
+// Form Field Motion Focus Functions
+function formFieldFocus(){
+    // Set Value and class for all text fields without value.
+    $('input[type=text][value=""], textarea:empty').each(function(){
+        $(this).addClass('default-value').val($(this).attr('title'));
+    });
+    // onFocus, if value is same as title, remove default-value class and default value.
+    $("input[type=text], textarea").bind('focus', function() {
+        if ($.trim($(this).val()) == $(this).attr('title'))
+            $(this).removeClass('default-value').val('');
+    // onBlur, if value empty or equal to title, add default-value class and copy value from title.
+    }).bind('blur', function() {
+        if ($.trim($(this).val()) == '')
+            $(this).addClass('default-value').val($(this).attr('title'));
+    });
+}
+
+
+
+
+// Authentication Functions (need to be merged. search for all instances of "mtGetUser" above and merge)
+
+function ifLoggedIn(){
+    var u = mtGetUser();
+    if (u && u.is_authenticated && u.is_author)
+        return true;
+}
+
+function setCommenter(){
+    if (mtGetUser()) {
+
+        // Set Commenting Values
+        var authorVal = mtGetUser().name;
+        var emailVal = mtGetUser().email;
+        var urlVal = mtGetUser().url;
+    // } else {
+    //     var authorVal = $("#comment-author").val();
+    //     var emailVal = $("#comment-email").val();
+    //     var urlVal = $("#comment-url").val();
+    }
+}
+
+function personalizeEditor() {
+    var u = mtGetUser();
+    if ( u && u.is_authenticated ) {
+        // Set Compose Userpic
+        if (u.userpic) {
+            $("#compose-userpic img").attr({
+                src: u.userpic,
+                alt: u.name
+            });
+        } else {
+            $("#compose-userpic img").wrap('<a href="' + mt.blog.community.script + '?__mode=edit&blog_id=' + mt.blog.id + '&return_to=' + encodeURIComponent(document.URL) + '"></a>');
+            $('#compose-userpic a').append('<span>Add userpic</span>');
+        };
+    };
+}
+function personalizeCommentForm() {
+    var u = mtGetUser();
+    if ( u && u.is_authenticated ) {
+        // Set Commenter Userpic
+        if (u.userpic) {
+            $("#commenter-userpic").attr({
+                src: u.userpic,
+                alt: u.name
+            });
+        };
+    };
+}
+function composeMagic() {
+    var u = mtGetUser();
+    if (ifLoggedIn()) {
+      if ( u.can_post ) {
+        $('#authenticate').fadeOut('fast');
+        $('#compose').show(); // .slideDown();
+        $('#compose-magic').val(u.sid);
+        $('#cannot-post').hide();
+      } else if ( u.can_comment ) {
+        $('#authenticate').hide();
+        $('#compose').hide();
+        $('#cannot-post').hide();
+      } else {
+        $('#authenticate').show();
+        $('#compose').hide();
+        $('#cannot-post').show();
+      }
+    } else if ( !u ) {
+        $('#authenticate').show();
+        $('#cannot-post').hide();
+    } else {
+        $('#authenticate').hide();
+        $('#compose').hide();
+        $('#cannot-post').hide();
+    }
+}
+
+
+mtAttachEvent('usersignin', composeMagic);
+mtAttachEvent('usersignin', showPreview);
+
+
+// Browser Hacks
+$(document).ready(function() {
+    // if Mozilla
+    if ($.browser.mozilla){
+        // on unload event, clear text values so that they are not cached
+        $(window).unload(function(){
+            $(':text, textarea').val('');
+        });
+    }
+});
+
+// Debug Functions
+// $(document).ready(function() {
+    // Object dumper
+    // $('#alpha').prepend("<pre>" + $($.browser).dump() + "</pre>");
+// });
+

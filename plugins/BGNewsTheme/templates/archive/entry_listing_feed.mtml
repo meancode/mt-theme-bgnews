@@ -1,0 +1,36 @@
+<$mt:HTTPContentType type="application/atom+xml"$><?xml version="1.0" encoding="<$mt:PublishCharset$>"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title><$mt:BlogName$> - <$mt:CategoryLabel remove_html="1" encode_xml="1"$></title>
+    <subtitle><$mt:Include module="META Description"$> <mt:If tag="CategoryDescription"><$mt:CategoryDescription remove_html="1" encode_xml="1"$></mt:If></subtitle>
+    <link rel="alternate" type="text/html" href="<$mt:ArchiveLink encode_xml="1"$>" />
+    <id>tag:<$mt:BlogHost exclude_port="1" encode_xml="1"$>,<$mt:TemplateCreatedOn format="%Y-%m-%d"$>:<$mt:BlogRelativeURL encode_xml="1"$>/<$mt:CategoryID$></id>
+    <updated><mt:Entries lastn="1"><$mt:EntryModifiedDate utc="1" format="%Y-%m-%dT%H:%M:%SZ"$></mt:Entries></updated>
+<logo><$mt:StaticWebPath$>themes/bgviews/images/rss_logo.gif</logo>
+     
+<mt:Entries lastn="15">
+<entry>
+    <title><$mt:EntryTitle remove_html="1" encode_xml="1"$></title>
+    <link rel="alternate" type="text/html" href="<$mt:EntryPermalink encode_xml="1"$>" />
+    <id><$mt:EntryAtomID$></id>
+
+    <published><$mt:EntryDate utc="1" format="%Y-%m-%dT%H:%M:%SZ"$></published>
+    <updated><$mt:EntryModifiedDate utc="1" format="%Y-%m-%dT%H:%M:%SZ"$></updated>
+
+    <summary><$mt:EntryExcerpt remove_html="1" encode_xml="1"$></summary>
+    <author>
+        <name><$mt:EntryAuthorDisplayName encode_xml="1"$></name>
+        <uri><$mt:CGIPath encode_xml="1"$><$mt:CommunityScript encode_xml="1"$>?__mode=view&amp;blog_id=<$mt:BlogID$>&amp;id=<$mt:EntryAuthorID$></uri>
+    </author>
+    <mt:EntryCategories>
+        <category term="<$mt:CategoryLabel encode_xml="1"$>" scheme="http://www.sixapart.com/ns/types#category" />
+    </mt:EntryCategories>
+    <mt:EntryIfTagged><mt:EntryTags><category term="<$mt:TagName normalize="1" encode_xml="1"$>" label="<$mt:TagName encode_xml="1"$>" scheme="http://www.sixapart.com/ns/types#tag" />
+    </mt:EntryTags></mt:EntryIfTagged>
+    <content type="html" xml:lang="<$mt:BlogLanguage ietf="1"$>" xml:base="<$mt:BlogURL encode_xml="1"$>">
+        <$mt:EntryBody encode_xml="1"$>
+        <$mt:EntryMore encode_xml="1"$>
+    </content>
+</entry>
+</mt:Entries>
+</feed>
+

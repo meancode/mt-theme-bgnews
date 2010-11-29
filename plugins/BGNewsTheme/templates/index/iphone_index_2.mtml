@@ -1,0 +1,27 @@
+<$mt:Include module="iPhone HTML Head"$>
+<body>
+<div id="header">        
+<a class="button" href="mailto:<$mt:Include module="Mobile Contact"$>" title="Contact by email" target="_self">Contact</a>        
+</div>
+<$mt:Include module="iPhone BG Views Header"$>
+<div id="content">
+        <mt:Entries lastn="10" offset="10">
+        <mt:EntriesHeader>
+            <ul class="index">
+        </mt:EntriesHeader>
+                <li><a href="<$mt:BlogURL$>m/<mt:IfCategory><$mt:CategoryBasename$>/</mt:IfCategory><$mt:EntryBasename separator="-"$>/"><$mt:EntryTitle$></a><abbr class="published" title="<$mt:EntryDate format_name="iso8601"$>"><$mt:EntryDate format="%x %X"$></abbr></li>
+        <mt:EntriesFooter>
+            </ul>
+        </mt:EntriesFooter>
+        </mt:Entries>
+</div>
+<$mt:Include module="iPhone Footer Ad Slot"$>
+<div id="nav">
+          <$mt:Include module="iPhone Footer Nav2"$>
+</div>
+<div id="footer" style="background-color:#243f8f;">
+          <$mt:Include module="iPhone Footer"$>
+</div>
+    </body>
+</html>
+

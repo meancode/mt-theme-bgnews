@@ -1,0 +1,14 @@
+<mt:IfBGNBreakingShow>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="home-spotlight" class="breaking">
+  <tr>
+    <td width="60" valign="top" bgcolor="#ac1700"><a href="http://bgnews.com/breaking/"><img src="http://bgnews.com/images/breaking-small.gif" width="60" height="24" border="0" /></a></td>
+    <td valign="top" style="padding-top:3px; padding-bottom:3px; padding-right:3px; padding-left:10px;">
+	<mt:SetVarBlock name="breaking_id_one"><$mt:BGNBreakingSection$></mt:SetVarBlock>
+        <mt:Entries id="$breaking_id_one">
+        <a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a>
+        </mt:Entries>
+	</td>
+  </tr>
+</table>
+</mt:IfBGNBreakingShow>
+
